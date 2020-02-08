@@ -7,9 +7,18 @@
   "license": "MIT",
   "dependencies": {
     "@hapi/hapi": "^19.0.5",
+    "apollo-boost": "^0.4.7",
+    "apollo-server-hapi": "^2.9.16",
+    "bunyan": "^1.8.12",
     "cookie": "^0.4.0",
     "esm": "^3.2.25",
-    "jsonwebtoken": "^8.5.1"
+    "graphql": "^14.6.0",
+    "graphql-compose": "^7.9.0",
+    "graphql-compose-mongoose": "^7.3.3",
+    "graphql-tag": "^2.10.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.9",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
@@ -17,6 +26,7 @@
     "jest": "^24.9.0"
   },
   "scripts": {
-    "start": "node -r esm ./hapi/index.js"
+    "start": "node -r esm ./hapi/index.js",
+    "start-client": "node -r esm ./client/index.js"
   }
 }

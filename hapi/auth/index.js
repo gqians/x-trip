@@ -9,16 +9,18 @@ const people = {
 };
 
 // use the token as the 'authorization' header in requests
-const token = JWT.sign(people[1], config.auth.secret); // synchronous
-console.log(token);
+// const token = JWT.sign(people[1], config.auth.secret); // synchronous
+function makeToken(entity){
+	return JWT.sign(entity, config.auth.secret); // synchronous
+}
 // bring your own validation function
 const validate = async function (decoded, request, h) {
-  console.log(" - - - - - - - decoded token:");
-  console.log(decoded);
-  console.log(" - - - - - - - request info:");
-  console.log(request.info);
-  console.log(" - - - - - - - user agent:");
-  console.log(request.headers['user-agent']);
+//   console.log(" - - - - - - - decoded token:");
+//   console.log(decoded);
+//   console.log(" - - - - - - - request info:");
+//   console.log(request.info);
+//   console.log(" - - - - - - - user agent:");
+//   console.log(request.headers['user-agent']);
 
   // do your checks to see if the person is valid
   if (!people[decoded.id]) {
@@ -39,6 +41,6 @@ const cookie_options={
 export {
 	hapiAuthJWT,
 	validate,
-	token,
+	makeToken,
 	cookie_options,
 }

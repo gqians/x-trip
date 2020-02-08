@@ -1,0 +1,16 @@
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":12539,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-03T00:00:33.384Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":12539,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-03T00:00:33.384Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":12539,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-03T00:00:33.393Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":12539,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-03T00:00:33.393Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":16447,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-03T01:17:15.293Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":16447,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-03T01:17:15.293Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":16447,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-03T01:17:15.474Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":16447,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-03T01:17:15.474Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":1037,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-03T23:14:55.358Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":1037,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-03T23:14:55.358Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":1037,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-03T23:14:55.429Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":1037,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-03T23:14:55.429Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":2098,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-03T23:50:50.063Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":2098,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-03T23:50:50.063Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":2098,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-03T23:50:50.071Z","v":0}
+{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":2098,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-03T23:50:50.071Z","v":0}
