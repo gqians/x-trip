@@ -11,10 +11,10 @@ const internals = {}; // see: http://hapijs.com/styleguide#module-globals
  * @param {String} _default - the default key used if no custom is defined.
  * @returns {String} key - the custom key or default key.
  */
-function customOrDefaultKey(options, key, _default) {
-  return options[key] === false || typeof options[key] === 'string'
-    ? options[key]
-    : _default;
+function customOrDefaultKey (options, key, _default) {
+	return options[key] === false || typeof options[key] === 'string'
+		? options[key]
+		: _default;
 }
 
 /**
@@ -24,48 +24,48 @@ function customOrDefaultKey(options, key, _default) {
  * using the plugin. this includes relevant keys. (see docs in Readme)
  * @returns {String} token - the raw JSON Webtoken or `null` if invalid
  */
-module.exports = function extract(request, options) {
-  // The key holding token value in url or cookie defaults to token
-  let auth, token;
-  const cookieKey = customOrDefaultKey(options, 'cookieKey', 'token');
-  const headerKey = customOrDefaultKey(options, 'headerKey', 'authorization');
-  const urlKey = customOrDefaultKey(options, 'urlKey', 'token');
-  const payloadKey = customOrDefaultKey(options, 'payloadKey', 'token');
-  const pattern = new RegExp(options.tokenType + '\\s+([^$]+)', 'i');
+module.exports = function extract (request, options) {
+	// The key holding token value in url or cookie defaults to token
+	let auth, token;
+	const cookieKey = customOrDefaultKey(options, 'cookieKey', 'token');
+	const headerKey = customOrDefaultKey(options, 'headerKey', 'authorization');
+	const urlKey = customOrDefaultKey(options, 'urlKey', 'token');
+	const payloadKey = customOrDefaultKey(options, 'payloadKey', 'token');
+	const pattern = new RegExp(options.tokenType + '\\s+([^$]+)', 'i');
 
-  if (urlKey && request.query[urlKey]) {
-    // tokens via url: https://github.com/dwyl/hapi-auth-jwt2/issues/19
-    auth = request.query[urlKey];
-  } else if (headerKey && request.headers[headerKey]) {
-    if (typeof options.tokenType === 'string') {
-      token = request.headers[headerKey].match(pattern);
-      auth = token === null ? null : token[1];
-    } else {
-      auth = request.headers[headerKey];
-    } // JWT tokens in cookie: https://github.com/dwyl/hapi-auth-jwt2/issues/55
-  } else if (cookieKey && request.headers.cookie) {
-    auth = Cookie.parse(request.headers.cookie)[cookieKey];
-  }
-  if (payloadKey && request.payload && request.payload[payloadKey]) {
-    auth = request.payload[payloadKey];
-  }
-  if (!auth && options.customExtractionFunc) {
-    auth = options.customExtractionFunc(request);
-  }
+	if (urlKey && request.query[urlKey]) {
+		// tokens via url: https://github.com/dwyl/hapi-auth-jwt2/issues/19
+		auth = request.query[urlKey];
+	} else if (headerKey && request.headers[headerKey]) {
+		if (typeof options.tokenType === 'string') {
+			token = request.headers[headerKey].match(pattern);
+			auth = token === null ? null : token[1];
+		} else {
+			auth = request.headers[headerKey];
+		} // JWT tokens in cookie: https://github.com/dwyl/hapi-auth-jwt2/issues/55
+	} else if (cookieKey && request.headers.cookie) {
+		auth = Cookie.parse(request.headers.cookie)[cookieKey];
+	}
+	if (payloadKey && request.payload && request.payload[payloadKey]) {
+		auth = request.payload[payloadKey];
+	}
+	if (!auth && options.customExtractionFunc) {
+		auth = options.customExtractionFunc(request);
+	}
 
-  // strip pointless "Bearer " label & any whitespace > http://git.io/xP4F
-  auth = auth ? auth.replace(/Bearer/gi, '').replace(/ /g, '') : null;
-  // If we are receiving a headerless JWT token let reconstruct it using the custom function
-  if (
-    options.headless &&
+	// strip pointless "Bearer " label & any whitespace > http://git.io/xP4F
+	auth = auth ? auth.replace(/Bearer/gi, '').replace(/ /g, '') : null;
+	// If we are receiving a headerless JWT token let reconstruct it using the custom function
+	if (
+		options.headless &&
     typeof options.headless === 'object' &&
     internals.isHeadless(auth)
-  ) {
-    auth = `${Buffer.from(JSON.stringify(options.headless)).toString(
-      'base64'
-    )}.${auth}`;
-  }
-  return auth;
+	) {
+		auth = `${Buffer.from(JSON.stringify(options.headless)).toString(
+			'base64'
+		)}.${auth}`;
+	}
+	return auth;
 };
 
 /**
@@ -73,8 +73,8 @@ module.exports = function extract(request, options) {
  * @param {String} token - the token extracted from Header/Cookie/query
  * @returns {Boolean} true|false - true if JWT is valid. false if invalid.
  */
-module.exports.isValid = function isValid(token) {
-  return token.split('.').length === 3;
+module.exports.isValid = function isValid (token) {
+	return token.split('.').length === 3;
 };
 
 /**
@@ -87,6 +87,6 @@ module.exports.isValid = function isValid(token) {
  * // returns true if the token consist of 3 parts
  * const isheadless = isHeadless(token);
  */
-internals.isHeadless = function isHeadless(token) {
-  return token && token.split('.').length === 2;
+internals.isHeadless = function isHeadless (token) {
+	return token && token.split('.').length === 2;
 };

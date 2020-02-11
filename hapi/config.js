@@ -9,20 +9,20 @@ export default {
 		ttl: 365 * 24 * 60 * 60 * 1000, // expires a year from today
 		encoding: 'none', // we already used JWT to encode
 		isSecure: false, // warm & fuzzy feelings
-		isHttpOnly: true, // prevent client alteration
+		isHttpOnly: true, // prevent client alterations
 		clearInvalid: false, // remove invalid cookies
 		strictHeader: true, // don't allow violations of RFC 6265
-		ignoreExpiration: true,
+		ignoreExpiration: true
 	},
 	mongoUri: 'mongodb://127.0.0.1:27017/trip',
-	logger:{
-		name:'trip',
-		path:path.join(process.cwd(), './hapi/logger'),
-		period:'1d',
-		count: 7,
+	logger: {
+		name: 'trip',
+		path: path.join(process.cwd(), './hapi/logger'),
+		period: '1d',
+		count: 7
 	},
-	graphql:{
+	graphql: {
 		graphqlpath: '/graphql',
 		graphiqlpath: '/graphiql'
 	}
-}
+};

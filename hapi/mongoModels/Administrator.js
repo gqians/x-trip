@@ -11,7 +11,7 @@ const adminSchema = new Schema({
 	},
 	password: {
 		type: String,
-		required: true,
-	},
-})
+		required: true
+	}
+});
 export default adminSchema;

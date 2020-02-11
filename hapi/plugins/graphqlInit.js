@@ -1,13 +1,13 @@
 import { composeWithMongoose } from 'graphql-compose-mongoose';
 import { schemaComposer } from 'graphql-compose';
-import { graphqlHapi} from 'apollo-server-hapi/dist/hapiApollo';
+import { graphqlHapi } from 'apollo-server-hapi/dist/hapiApollo';
 const graphqlPlugin = {
-    name: 'graphqlInit',
-    version: '1.0.0',
+	name: 'graphqlInit',
+	version: '1.0.0',
 	register: async function (server, options) {
-		server.method('registerGraphQLSchema',async ({
+		server.method('registerGraphQLSchema', async ({
 			model,
-			customizationOptions ={},
+			customizationOptions = {},
 			name: schemaName,
 			queryFields = {
 				ById: 'findById',
@@ -16,7 +16,7 @@ const graphqlPlugin = {
 				Many: 'findMany',
 				Count: 'count',
 				Connection: 'connection',
-				Pagination: 'pagination',
+				Pagination: 'pagination'
 			},
 			mutationFields = {
 				Create: 'createOne',
@@ -26,16 +26,16 @@ const graphqlPlugin = {
 				UpdateMany: 'updateMany',
 				RemoveById: 'removeById',
 				RemoveOne: 'removeOne',
-				RemoveMany: 'removeMany',
+				RemoveMany: 'removeMany'
 			},
-			onPreAddFields = x => x,
-		})=>{
+			onPreAddFields = x => x
+		}) => {
 			const tc = composeWithMongoose(model, customizationOptions);
-			server.app.schema=server.app.schema?server.app.schema:{};
+			server.app.schema = server.app.schema ? server.app.schema : {};
 			server.app.schema[schemaName] = onPreAddFields(tc);
 			Object.entries(queryFields).forEach(([suffix, resolerName]) => {
 				schemaComposer.Query.addFields({
-					[`${schemaName}${suffix}`]: tc.getResolver(resolerName),
+					[`${schemaName}${suffix}`]: tc.getResolver(resolerName)
 				});
 			});
 			Object.entries(mutationFields).forEach(
@@ -43,27 +43,27 @@ const graphqlPlugin = {
 					schemaComposer.Mutation.addFields({
 						[`${schemaName}${suffix}`]: tc.getResolver(
 							resolerName
-						),
+						)
 					});
 				}
 			);
 			return tc;
-		})
+		});
 		server.ext('onPreStart', async () => {
 			const graphqlSchema = schemaComposer.buildSchema();
 			console.log(options.graphql.graphqlpath);
 			await server.register({
 				plugin: graphqlHapi,
 				options: {
-				  path: options.graphql.graphqlpath,
-				  graphqlOptions: {
-					schema: graphqlSchema,
-				  },
-				  route: {
-					cors: true,
-				  },
-				},
-			  });
+					path: options.graphql.graphqlpath,
+					graphqlOptions: {
+						schema: graphqlSchema
+					},
+					route: {
+						cors: true
+					}
+				}
+			});
 			//   await server.register({
 			// 	plugin: graphiqlHapi,
 			// 	options: {
@@ -78,5 +78,5 @@ const graphqlPlugin = {
 			//   });
 		});
 	}
-}
+};
 export default graphqlPlugin;
