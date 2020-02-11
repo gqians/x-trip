@@ -16,13 +16,23 @@
     "graphql-compose": "^7.9.0",
     "graphql-compose-mongoose": "^7.3.3",
     "graphql-tag": "^2.10.1",
+    "html-webpack-plugin": "^3.2.0",
     "jsonwebtoken": "^8.5.1",
+    "mini-css-extract-plugin": "^0.9.0",
     "mongoose": "^5.8.9",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "webpack": "^4.41.5"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.18.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.18.3",
+    "eslint-plugin-standard": "^4.0.1",
     "jest": "^24.9.0"
   },
   "scripts": {

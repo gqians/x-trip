@@ -4,9 +4,10 @@ import { createHttpLink } from 'apollo-link-http';
 import fetch from 'node-fetch';
 import gql from 'graphql-tag';
 const client = new ApolloClient({
-  //link: createHttpLink({ uri: 'https://graphql-compose.herokuapp.com/user' ,fetch}),
-  link: createHttpLink({ uri: 'http://localhost:8090/graphql' ,fetch}),
-  cache: new InMemoryCache()
+	link: createHttpLink({ uri: 'http://localhost:8090/graphql', fetch }),
+	// eslint-disable-next-line no-tabs
+	// link: createHttpLink({ uri: 'https://graphql-compose.herokuapp.com/user' ,fetch}),
+	cache: new InMemoryCache()
 });
 // client.mutate({
 // 	mutation: gql`
@@ -23,8 +24,6 @@ const client = new ApolloClient({
 // 	  }
 // 	`
 // }).then(data => console.log(data)).catch(error => console.error(error));
-
-
 // client.query({
 // 	query: gql`
 // 	query {
@@ -36,8 +35,6 @@ const client = new ApolloClient({
 // 	  }
 // 	`
 // }).then(data => console.dir(data.data.JobFindMany)).catch(error => console.error(error));
-
-
 
 // client.mutate({
 // 	mutation: gql`
@@ -67,7 +64,7 @@ client.query({
 			}
 	  }
 	`
-}).then(data => console.dir(data.data.TaskHistoryFindMany)).catch(error => console.error(error));
+}).then((data) => console.dir(data.data.TaskHistoryFindMany)).catch((error) => console.error(error));
 // mutation{
 // 	JobCreateOne(record:{
 // 	  enableMonitor:true

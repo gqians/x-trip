@@ -1,32 +1,4 @@
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":4968,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T00:04:23.261Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":4968,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T00:04:23.261Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":4968,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T00:04:23.694Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":4968,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T00:04:23.694Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":14621,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T01:39:55.243Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":14621,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T01:39:55.243Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":14621,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T01:39:55.541Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":14621,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T01:39:55.541Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":18723,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T02:13:58.190Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":18723,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T02:13:58.190Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":18723,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T02:13:58.281Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":18723,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T02:13:58.281Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":20697,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T02:44:03.245Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":20697,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T02:44:03.245Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":20697,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T02:44:03.270Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":20697,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T02:44:03.270Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":5552,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T04:21:47.143Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":5552,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T04:21:47.143Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":5552,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T04:21:47.403Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":5552,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T04:21:47.403Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":6111,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T04:27:44.698Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":6111,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T04:27:44.698Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":6111,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T04:27:44.747Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":6111,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T04:27:44.747Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":6341,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T04:29:26.636Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":6341,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T04:29:26.636Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":6341,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T04:29:26.685Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":6341,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T04:29:26.685Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":7192,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T04:36:19.401Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":7192,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-04T04:36:19.401Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":7192,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T04:36:19.452Z","v":0}
-{"name":"trip","hostname":"qh-Aspire-E5-572G","pid":7192,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-04T04:36:19.452Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":23301,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-08T13:28:40.407Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":23301,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-08T13:28:40.407Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":23301,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-08T13:28:40.427Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":23301,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-08T13:28:40.427Z","v":0}
