@@ -1,0 +1,51 @@
+@import './reset.css';
+
+html {
+	font-size: 16px;
+	font-family: var(--font-primary);
+}
+
+body {
+	color: var(--color-text);
+	background: var(--color-bg);
+}
+
+#app {
+	overflow-x: hidden;
+}
+
+.frame {
+	height: 100vh;
+	width: 100vw;
+	font-size: var(--text-base-size);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+
+	&.nav-vertical {
+		flex-direction: row;
+	}
+
+	.nav {
+		z-index: 1;
+	}
+
+	.main {
+		flex: 1;
+		overflow: hidden;
+		flex-direction: column;
+		position: relative;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+}
+
+@media (min-width: 1584px) {
+	:root {
+		--text-base-size: 16px !important;
+	}
+
+	html {
+		font-size: 20px !important;
+	}
+}

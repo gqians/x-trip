@@ -1,0 +1,10 @@
+.login {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content:center;
+	.left {
+		width: 10rem;
+		height: 10rem;
+	}
+}
+
