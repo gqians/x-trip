@@ -51,7 +51,6 @@ const graphqlPlugin = {
 		});
 		server.ext('onPreStart', async () => {
 			const graphqlSchema = schemaComposer.buildSchema();
-			console.log(options.graphql.graphqlpath);
 			await server.register({
 				plugin: graphqlHapi,
 				options: {

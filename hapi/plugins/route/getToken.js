@@ -1,4 +1,4 @@
-import { hapiAuthJWT, validate, makeToken, cookieOptions } from '../../auth';
+import { hapiAuthJWT, makeToken, cookieOptions } from '../../auth';
 import adminSchema from '../../mongoModels/Administrator';
 const routeGetTokenPlugin = {
 	name: 'authInit',
@@ -6,6 +6,20 @@ const routeGetTokenPlugin = {
 	register: async function (server, options) {
 		const config = options;
 		await server.register(hapiAuthJWT);
+		// bring your own validation function
+		const validate = async function (decoded, request, h) {
+			const information={
+				id:decoded.id,
+				password:decoded.password
+			};
+			const Admin = server.app.mongoose.model('Admin', adminSchema);
+			const pass = await Admin.exists(information);
+			if (!pass) {
+				return { isValid: false };
+			} else {
+				return { isValid: true };
+			}
+		};
 		server.auth.strategy('jwt', 'jwt', {
 			key: config.auth.secret,
 			validate,
@@ -19,11 +33,13 @@ const routeGetTokenPlugin = {
 			config: {
 				auth: false,
 				handler: async function (request, h) {
+					if(!request.payload){
+						return h.response({state:false,message:'请求信息不完整，请补充信息'});
+					}
 					const information = { id: request.payload.id, password: request.payload.password };
 					const token = makeToken(information);
 					server.app.logger.info('url-getToken：', token);
-					// const Admin = server.app.mongoose.model('Admin', adminSchema);
-					const Admin = server.methods.registerMongoModel('Admin', adminSchema);
+					const Admin = server.app.mongoose.model('Admin', adminSchema);
 					const exists = await Admin.exists({ id: information.id }); // true
 					if (!exists) {
 						return h
@@ -34,8 +50,9 @@ const routeGetTokenPlugin = {
 						return h
 							.response({ state: false, message: '密码错误！' });
 					}
+					console.log(token);
 					return h
-						.response({ token })
+						.response({ token,state:true })
 						.header('Authorization', token) // where token is the JWT
 						.state('token', token, cookieOptions); // set the cookie with options
 				}
@@ -60,16 +77,18 @@ const routeGetTokenPlugin = {
 			config: {
 				auth: false,
 				handler: async function (request, h) {
+					if(!request.payload){
+						return h.response({state:false,message:'请求信息不完整，请补充信息'});
+					}
 					const Admin = server.app.mongoose.model('Admin', adminSchema);
 					const information = { id: request.payload.id, password: request.payload.password };
 					const exists = await Admin.exists({ id: information.id }); // true
 					if (!exists) {
-						const result = await Admin.create(information);
-						result.then(err => {
-							if (err) {
-								request.server.app.logger.info('注册失败:', err);
-							}
-						});
+						try{
+							const result = await Admin.create(information);
+						}catch(err){
+							request.server.app.logger.info('注册失败:', information.id);
+						}
 						request.server.app.logger.info('注册成功:', information.id);
 						return h.response({ state: true, message: '注册成功!' }).code(200);
 					} else {

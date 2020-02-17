@@ -52,7 +52,10 @@ module.exports = {
 		compress: true,
 		open: true,
 		hot: true,
-		port: 9000
+		port: 9000,
+		proxy: {
+			'/login': 'http://localhost:8090'
+		}
 	},
 	module: {
 		rules: [

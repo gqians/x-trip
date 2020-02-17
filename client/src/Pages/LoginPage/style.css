@@ -2,9 +2,81 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content:center;
+	align-items:center;
+	height: 100vh;
 	.left {
-		width: 10rem;
-		height: 10rem;
+		width: 19rem;
+		height: 17rem;
+		background-color:  #fefefe;
+		.text-top{
+			font-size: var(--text-xxxxl);
+    	font-weight: 900;
+    	margin: 3rem 2.7rem 2.7rem;
+		}
+		.text-bto{
+			font-size: var(--text-base-size);
+			color: #999;
+      line-height: 1.5;
+      margin: 2.7rem;
+		}
+	}
+	.right{
+		width: 20rem;
+		height:20rem;
+		background-color: #474a59;
+		box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+		position: relative;
+		.svg{
+			position: absolute;
+		}
+		.path{
+			fill: none;
+    	stroke: url(#linearGradient);
+			stroke-width: 4;
+			stroke-dasharray: 240 1386;
+		}
+		.form{
+			position: absolute;
+			width: 15rem;
+			height: 15rem;
+			margin: 2.5rem;
+			display: flex;
+			flex-direction: column;
+			.user{
+				flex-direction: column;
+				color: #c2c2c5;
+				display: block;
+				font-size: 1rem;
+				.label{
+					color: #c2c2c5;
+					display: block;
+					font-size: 1rem;
+					height: 1.1rem;
+					margin-top: 1.2rem;
+					margin-bottom: 0.5rem;
+				}
+				.input{
+					background: transparent;
+					border: 0;
+					color: #f2f2f2;
+					font-size: 1.2rem;
+					height: 2rem;
+					line-height: 2rem;
+					outline: none !important;
+				}
+			}
+			.submit{
+				background: transparent;
+				margin-top: 2rem;
+				border: 0;
+				color: #f2f2f2;
+				font-size: 20px;
+				height: 30px;
+				line-height: 30px;
+				outline: none !important;
+				cursor: pointer;
+			}
+		}
 	}
 }
 

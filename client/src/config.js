@@ -164,6 +164,7 @@ export default {
 		'--text-lg': 'calc(var(--text-base-size) + 2px)' /* 16px */,
 		'--text-xl': 'calc(var(--text-base-size) + 6px)' /* 20px */,
 		'--text-xxl': 'calc(var(--text-base-size) + 10px)' /* 24px */,
-		'--text-xxxl': 'calc(var(--text-base-size) + 18px)' /* 32px */
+		'--text-xxxl': 'calc(var(--text-base-size) + 18px)' /* 32px */,
+		'--text-xxxxl': 'calc(var(--text-base-size) + 36px)'/* 50px */
 	}
 };

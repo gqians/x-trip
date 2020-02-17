@@ -1,0 +1,30 @@
+.left {
+	display:flex;
+	flex-direction: column;
+	height: 60vh;
+	border-bottom: #a0a4b1 solid;
+	.title{
+		height: 7vh;
+		margin: 1.7rem 0 1.7rem 1.5rem;;
+		.name{
+			.text{
+				display: inline-block;
+				margin-left: 0.5rem;
+				vertical-align: top;
+				font-size: 1.2rem;
+				color: #9fa4b2;
+			}
+		}
+	}
+	.item{
+		margin-left: 1.5rem;
+		line-height: 7vh;
+		.text-link{
+			margin-left: 1.5rem;
+			vertical-align: middle;
+			font-size: 1rem;
+			color: #9fa4b2;
+		}
+	}
+
+}

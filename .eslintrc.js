@@ -24,7 +24,7 @@ module.exports = {
     'react'
   ],
   rules: {
-	"indent": ["error", "tab"],
+	    "indent": ["error", "tab"],
 		"no-tabs": "off",
 		"semi": [2, "always"],
 		"camelcase": 2,
