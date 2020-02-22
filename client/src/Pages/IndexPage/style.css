@@ -1,0 +1,46 @@
+.index {
+	display: flex;
+	flex-direction: column;
+	height:100%;
+	.first-row {
+		display: flex;
+		justify-content: space-between;
+		margin: 1rem;
+		flex-wrap:wrap;
+		.span{
+			width:14.5rem;
+			height:9rem;
+			border-radius: 4%;
+			border: hsl(235,23%,89%) solid;
+			background-color: hsl(0,0%,100%);
+			color:hsl(231,12%,66%);
+			text-align: center;
+			font-size: 1.2rem;
+			&:before{
+				display: inline;
+				content: "";
+				line-height: 4rem;
+			}
+			.num{
+				display: block;
+				font-size: 2rem;
+				color:hsl(231,15%,17%);
+			}
+			&:hover{
+				color:hsl(232,100%,60%);
+				border-color: hsl(232,100%,60%);
+				.num{
+					color:hsl(232,100%,60%);
+				}
+			}
+		}
+	}
+	.secondRow {
+			 margin: 1rem;
+			 flex-grow: 1;
+			 border: hsl(235,23%,89%) solid;
+			 .map{
+				height:100%;
+			 }
+	}
+}

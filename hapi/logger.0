@@ -1,0 +1,6 @@
+{"name":"trip","hostname":"ubuntu-qianh","pid":6041,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-21T13:52:57.717Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":6041,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-21T13:52:57.717Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":6041,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-21T13:52:57.730Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":6041,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-21T13:52:57.730Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":6041,"level":30,"msg":"url-getToken： eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFpYW5oIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE1ODIyOTMxODN9.-kagRb_zjJMoHxY1AcRX3wG63s4Y0gwtprwngvm4ZPA","time":"2020-02-21T13:53:03.427Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":6041,"level":30,"msg":"url-getToken： eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFpYW5oIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE1ODIyOTMxODN9.-kagRb_zjJMoHxY1AcRX3wG63s4Y0gwtprwngvm4ZPA","time":"2020-02-21T13:53:03.427Z","v":0}

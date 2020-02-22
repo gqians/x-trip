@@ -1,9 +1,11 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import { HashRouter as Router, Route	} from 'react-router-dom';
 import Order from '../orderPage';
 import Sidebar from './sidebarPage';
+import Index from '../IndexPage';
 import s from './style.css';
+// import Index from '../IndexPage';
 function Home () {
 	return (
 		<div className={ s.home }>
@@ -11,9 +13,9 @@ function Home () {
 				<Sidebar />
 			</div>
 			<div className={ s.right }>
-				right
 				<Router>
 					<Route path="/home/order" component={ Order } />
+					<Route path="/home/index" component={ Index }/>
 				</Router>
 			</div>
 		</div>

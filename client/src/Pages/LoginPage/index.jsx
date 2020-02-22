@@ -108,7 +108,7 @@ class Login extends React.PureComponent {
 		}).then(res => {
 			console.log(res);
 			if (res.data.state) {
-				this.props.history.push('/home');
+				this.props.history.push('/home/index');
 			}
 		}).catch(e => {
 			console.log(e);
