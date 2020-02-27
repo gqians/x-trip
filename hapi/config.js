@@ -18,7 +18,7 @@ export default {
 	logger: {
 		name: 'trip',
 		path: path.join(process.cwd(), './hapi/logger'),
-		period: '1d',
+		period: '6d',
 		count: 7
 	},
 	graphql: {

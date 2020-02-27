@@ -1,3 +1,6 @@
+/* eslint-disable camelcase */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-useless-constructor */
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import cn from 'classnames';
@@ -6,18 +9,13 @@ import L from 'leaflet';
 import '../../../node_modules/leaflet/dist/leaflet.css';
 // import {tiledMapLayer} from '@supermap/iclient-leaflet';
 import 'leaflet.chinatmsproviders';
-// import gql from 'graphql-tag';
-// import { gql, graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
 import s from './style.css';
-// import axios from 'axios';
-// import { withRouter } from 'react-router-dom';
-// import fetch from 'node-fetch';
-// import Input from '../../components/input';
-// const login = gql`query { todos { text } }`;
+import Loading from '../../components/loading';
 class Index extends React.PureComponent {
-	constructor () {
-		super();
-		this.map = null;
+	constructor (props) {
+		super(props);
 	}
 	static propTypes = {
 		className: PropTypes.string,
@@ -26,17 +24,21 @@ class Index extends React.PureComponent {
 		}),
 		history: PropTypes.shape({
 			push: PropTypes.func
-		})
+		}),
+		data: PropTypes.object
 	};
 	state = {
+		touristSpots: this.props.data.TouristSpotsFindMany,
 		route: 0,
-		touristSpot: 0,
+		touristSpot: this.props.data.TouristSpotsFindMany.length,
 		ghandruk: 0,
 		order: 0
 	};
+	map=null;
 	componentDidMount () {
+		console.log('index-地图渲染');
 		this.map = L.map('map', {
-			center: [31.59, 120.29],
+			center: [32.6055981258, 116.8723554369],
 			zoom: 5
 		});
 		L.tileLayer.chinaProvider('TianDiTu.Normal.Map', {
@@ -50,6 +52,7 @@ class Index extends React.PureComponent {
 			minZoom: 5}).addTo(this.map);
 	}
 	render () {
+		console.log('index-渲染');
 		const {className} = this.props;
 		const {route, touristSpot, ghandruk, order} = this.state;
 		const items = [
@@ -86,4 +89,22 @@ class Index extends React.PureComponent {
 		);
 	}
 }
-export default Index;
+export default graphql(gql`
+	query{
+		TouristSpotsFindMany{
+		name
+		addedTime
+		address
+		lat
+		lng
+		picture
+		description
+		star
+		price
+		businessHours{
+			startTime
+			endTime
+		}
+		}
+	}
+`)(Loading(Index));

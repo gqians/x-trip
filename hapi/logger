@@ -1,0 +1,4 @@
+{"name":"trip","hostname":"ubuntu-qianh","pid":28906,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-27T11:42:04.263Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":28906,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-27T11:42:04.263Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":28906,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-27T11:42:04.273Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":28906,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-27T11:42:04.273Z","v":0}

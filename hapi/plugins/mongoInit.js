@@ -3,7 +3,9 @@ const mongoPlugin = {
 	name: 'mongoInit',
 	version: '1.0.0',
 	register: async function (server, options) {
-		mongoose.connect(options.mongoUri);
+		mongoose.connect(options.mongoUri,{
+			useCreateIndex: true
+		});
 		const db = mongoose.connection;
 		db.on('error', () => { console.error('mongo连接出错'); server.app.logger.error('hapi/plugins/mongoInit', 'mongo连接出错'); });
 		db.once('open', function () {

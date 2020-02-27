@@ -12,7 +12,7 @@ import config from './config';
 // 连接apollo服务
 
 const client = new ApolloClient({
-	link: createHttpLink({ uri: 'http://localhost:8090/graphql', fetch }),
+	link: createHttpLink({ uri: config.graphqlUri, fetch }),
 	cache: new InMemoryCache()
 });
 // 应用主题的 CSS 变量

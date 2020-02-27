@@ -166,5 +166,6 @@ export default {
 		'--text-xxl': 'calc(var(--text-base-size) + 10px)' /* 24px */,
 		'--text-xxxl': 'calc(var(--text-base-size) + 18px)' /* 32px */,
 		'--text-xxxxl': 'calc(var(--text-base-size) + 36px)'/* 50px */
-	}
+	},
+	graphqlUri: 'http://localhost:8090/graphql'
 };

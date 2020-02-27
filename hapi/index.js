@@ -4,8 +4,9 @@ import mongo from './plugins/mongoInit';
 import logger from './plugins/loggerInit';
 import getToken from './plugins/route/getToken';
 import graphql from './plugins/graphqlInit';
-import test from './plugins/graphql/test';
-import test2 from './plugins/graphql/test2';
+// import test from './plugins/graphql/schema/test';
+// import test2 from './plugins/graphql/schema/test2';
+import graphqlSchema from './plugins/graphql'
 const init = async () => {
 	const server = Hapi.server({
 		port: config.hapi.port,
@@ -24,10 +25,7 @@ const init = async () => {
 		plugin: graphql,
 		options: config
 	}, {
-		plugin: test2,
-		options: config
-	}, {
-		plugin: test,
+		plugin: graphqlSchema,
 		options: config
 	}]);
 	await server.start();

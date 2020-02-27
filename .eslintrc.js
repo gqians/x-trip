@@ -51,9 +51,6 @@ module.exports = {
 		"no-undef": 1, //不能有未定义的变量
 		"react/jsx-no-duplicate-props": 1, //防止在jsx中重复的props
 		"react/jsx-key": 1, //子数组和迭代器中验证jsx具有key属性
-		"react/prop-types": [1, {
-			"ignore": ["match"]
-		}], //防止在React组件定义中丢失props验证,这里不针对match验证
 		"react/no-array-index-key": 1, //防止在数组中遍历中使用数组key做索引
 		"class-methods-use-this": 0, //该规则旨在标记不使用的类方法this
 		"no-empty": 1, //块语句中的内容不能为空
