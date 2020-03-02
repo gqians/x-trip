@@ -22,6 +22,9 @@
 			padding-left: 1.5rem;
 			display: inline-block;
 			width: 100%;
+			.white-text{
+				color: #ffffff !important;
+			}
 			.text-link{
 				margin-left: 1.5rem;
 				vertical-align: middle;
@@ -29,6 +32,12 @@
 				color: #9fa4b2;
 			}
 		}
+		&:hover{
+			background-color: hsl(235,23%,33%);
+		}
+	}
+	.white-backgrpond{
+		background-color: hsl(235,23%,33%);
 		&:hover{
 			background-color: hsl(235,23%,33%);
 		}

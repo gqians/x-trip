@@ -38,6 +38,7 @@ const HocComponent = (ParameterComponent) =>
 		componentDidUpdate () {
 			console.log('loading-进入更新');
 			const {data} = this.props;
+			console.log(data);
 			if (!this.state.loading) {
 				return;
 			}

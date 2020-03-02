@@ -1,4 +1,22 @@
-{"name":"trip","hostname":"ubuntu-qianh","pid":28906,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-27T11:42:04.263Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28906,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-02-27T11:42:04.263Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28906,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-27T11:42:04.273Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28906,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-02-27T11:42:04.273Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":8198,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-02T00:03:37.056Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":8198,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-02T00:03:37.056Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":8198,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-02T00:03:37.067Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":8198,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-02T00:03:37.067Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":12133,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-02T01:45:50.479Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":12133,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-02T01:45:50.479Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":12133,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-02T01:45:50.489Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":12133,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-02T01:45:50.489Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":21040,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-02T05:34:12.030Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":21040,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-02T05:34:12.030Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":21040,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-02T05:34:12.040Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":21040,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-02T05:34:12.040Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":29263,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-02T08:55:19.124Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":29263,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-02T08:55:19.124Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":29263,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-02T08:55:19.142Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":29263,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-02T08:55:19.142Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":29563,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-02T08:59:36.084Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":29563,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-02T08:59:36.084Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":29563,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-02T08:59:36.094Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":29563,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-02T08:59:36.094Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":29563,"level":30,"msg":"url-getToken： eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFpYW5oIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE1ODMxNTg3ODV9.Pk9CPkEt5py2UVJfIhGXzzSt5pmLUNsUkH4EFgWZa3s","time":"2020-03-02T14:19:45.152Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":29563,"level":30,"msg":"url-getToken： eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InFpYW5oIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE1ODMxNTg3ODV9.Pk9CPkEt5py2UVJfIhGXzzSt5pmLUNsUkH4EFgWZa3s","time":"2020-03-02T14:19:45.152Z","v":0}

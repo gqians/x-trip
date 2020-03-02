@@ -12,5 +12,6 @@
 		width: calc(100vw - 10rem);
 		height: 100vh;
 		background-color:#f7f8fc;
+		overflow: hidden;
 	}
 }
