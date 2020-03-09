@@ -5,6 +5,7 @@ import Order from '../OrderPage';
 import Sidebar from './sidebarPage';
 import Index from '../IndexPage';
 import Report from '../ReportPage';
+import Tourist from '../TouristPage';
 import s from './style.css';
 // import Index from '../IndexPage';
 function Home () {
@@ -15,9 +16,10 @@ function Home () {
 			</div>
 			<div className={ s.right }>
 				<Router>
-					<Route path="/home/order" component={ Order } />
 					<Route path="/home/index" component={ Index } />
+					<Route path="/home/order" component={ Order } />
 					<Route path="/home/report" component={ Report }/>
+					<Route path="/home/tourist" component={ Tourist }/>
 				</Router>
 			</div>
 		</div>

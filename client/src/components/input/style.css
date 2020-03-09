@@ -1,73 +1,91 @@
-.input-wrapper {
-	position: relative;
-	border-radius: 4px;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	background: var(--color-bg-1);
-	border: 1px solid var(--color-border-1);
-	border-radius: 4px;
-	padding: 0 1rem;
-	height: 2.25rem;
+.input {
+	.aside-search{
+		/* border-bottom: 1px solid #e5e5e5; */
+		padding: 15px 0;
+		text-align: center;
+		.search-bar{
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+			height:2rem;
+			.com-search{
+				position: relative;
+				display: block;
+				.search-input{
+					box-shadow: none;
+					border: 1px solid #e5e5e5;
+					display: block;
+					box-sizing: border-box;
+					padding: 5px 36px 5px 10px;
+					border: none;
+					border-radius: 2px;
+					color: #000;
+				}
+				.default{
+					width: 250px;
+					font-size: 12px;
+					height: 30px;
+					line-height: 20px;
+				}
+				.large{
+					width: 500px;
+					font-size: 12px;
+					height: 30px;
+					line-height: 20px;
+				}
+				.search-btn{
+					position: absolute;
+					right: 0;
+					top: 0;
+					width: 26px;
+					height: 100%;
+					border: none;
+					background-color: transparent;
+					line-height: 30px;
+					font-size: 0;
+					text-align: left;
+					cursor: pointer;
+					outline: none;
+					&:before{
+						content: '';
+						display: inline-block;
+						vertical-align: middle;
+						width: 16px;
+						height: 16px;
+						background: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M932.935 873.6L806.18 736.34c-2.122-2.237-4.215-3.737-6.258-4.651 50.49-66.38 80.466-149.212 80.466-239.047 0-83.107-25.706-160.183-69.522-223.824 17.081 44.194 26.547 92.178 26.547 142.399 0 218.282-176.953 395.235-395.235 395.235-135.174 0-254.447-67.901-325.714-171.41 57.163 147.891 200.627 252.836 368.689 252.836 115.411 0 219.264-49.473 291.522-128.36l156.835 175.03c15.826-17.323 15.574-43.93-.576-60.949z' fill='%2344E0C2'/%3E%3Cpath d='M942.692 860.24L816.337 718.568c48.537-67.95 77.125-151.083 77.125-240.769 0-228.93-186.245-415.165-415.174-415.165-228.92 0-415.165 186.236-415.165 415.165s186.244 415.165 415.165 415.165c95.972 0 184.44-32.736 254.832-87.622l125.75 134.455c10.866 11.284 26.005 17.7 41.638 17.7h.757c15.905-.219 31.173-7.072 41.892-18.812 20.353-22.26 20.025-56.86-.465-78.443zM89.264 477.799c0-214.51 174.514-389.023 389.024-389.023 214.519 0 389.032 174.514 389.032 389.023S692.807 866.821 478.289 866.821c-214.51 0-389.025-174.513-389.025-389.023zM923.87 921.073c-5.96 6.508-14.11 10.172-22.951 10.3-8.796.073-17.082-3.354-23.088-9.57l-124.569-133.2a418.823 418.823 0 0 0 46.922-48.887l123.276 138.207c11.376 11.996 11.558 30.936.41 43.15z' fill='%2300B290'/%3E%3Cpath d='M331.138 229.746c-14.21 8.44-27.846 18.23-40.534 29.094-48.91 41.984-82.717 99.717-95.177 162.574-3.655 18.43-5.515 37.407-5.515 56.384 0 7.22 5.852 13.071 13.071 13.071s13.071-5.851 13.071-13.07c0-17.283 1.686-34.547 5.004-51.318 11.33-57.132 42.074-109.616 86.564-147.807 11.54-9.88 23.945-18.794 36.861-26.47 6.207-3.681 8.25-11.703 4.567-17.901-3.693-6.216-11.733-8.258-17.912-4.557z' fill='%2300B290'/%3E%3C/svg%3E") no-repeat center;
+						background-size: 100%;
+					}
 
-	&:hover {
-		border-color: var(--color-primary);
-	}
-
-	&[disabled] {
-		background: var(--color-bg-3);
-		cursor: not-allowed;
-		pointer-events: none;
-
-		input {
-			background: var(--color-bg-3);
-		}
-
-		svg {
-			fill: var(--color-bg-3);
-		}
-	}
-
-	&.small {
-		height: 2rem;
-		padding: 0 0.75rem;
-		font-size: var(--text-sm);
-	}
-
-	&.large {
-		height: 2.5rem;
-	}
-
-	.input {
-		flex: 1;
-		border: none;
-		outline: none;
-		background: inherit;
-	}
-
-	.before {
-		margin-left: 0.5rem;
-	}
-
-	.after {
-		margin-right: 0.5rem;
-	}
-
-	&:hover .clear-icon {
-		opacity: 1;
-	}
-
-	.clear-icon {
-		opacity: 0;
-		position: absolute;
-    right: 0;
-    height: 100%;
-    cursor: pointer;
-		fill: var(--color-text-3);
-		width: var(--text-md);
-
-		&:hover {
-			fill: var(--color-text-2);
+				}
+			}
+			.search-list{
+				background-color: hsl(0,0%,100%);
+				width:80%;
+				position: absolute;
+				left: 0;
+				right: 0;
+				overflow-y: auto;
+				margin: auto;
+				height: 200px;
+				color:hsl(150,39%,67%);
+				box-shadow: 0 2px 4px 0 rgba(0,0,0,.14);
+				font-size: 0.9rem;
+				.show-input{
+					border-bottom: 1px solid #e5e5e5;
+					height: 2rem;
+					line-height: 2rem;
+					cursor: pointer;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					&:hover{
+						background-color: hsl(240,33%,97%);
+					}
+					.text{
+						vertical-align: middle;
+					}
+				}
+			}
 		}
 	}
 }

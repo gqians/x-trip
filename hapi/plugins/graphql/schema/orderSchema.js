@@ -1,16 +1,15 @@
-import { Schema } from 'mongoose';
-import hotelSchema from '../../../mongoModels/hotel'
+import OrderSchema from '../../../mongoModels/Order'
 const graphqlPlugin = {
-	name: 'Hotel',
+	name: 'Order',
 	version: '1.0.0',
 	register: async function (server, options) {
-		const Hotel = server.methods.registerMongoModel({
-			name: 'hotel',
-			schema: hotelSchema
+		const Order = server.methods.registerMongoModel({
+			name: 'Order',
+			schema: OrderSchema
 		});
 		server.methods.registerGraphQLSchema({
-			name: 'Hotel',
-			model: Hotel,
+			name: 'Order',
+			model: Order,
 			queryFields: {
 				FindOne:'findOne',
 				FindMany: 'findMany',

@@ -1,10 +1,10 @@
 export default {
 	theme: {
-		'--color-h': 203,
-		'--color-s': 83,
-		'--color-l': 63,
-		'--color-s-step': 0,
-		'--color-l-step': 8,
+		'--color-h': 145,
+		'--color-s': 38,
+		'--color-l': 48,
+		'--color-s-step': -5,
+		'--color-l-step': -1,
 		'--color-0':
 				'hsl(var(--color-h), calc(calc(var(--color-s) - calc(var(--color-s-step) * 1)) * 1%), calc(calc(var(--color-l) - calc(var(--color-l-step) * 1)) * 1%))',
 		'--color-1':
@@ -28,11 +28,11 @@ export default {
 		'--color-primary': 'var(--color-5, #4da1c0)',
 
 		/* background colour */
-		'--color-bg-h': 'var(--color-h)',
-		'--color-bg-s': 25,
-		'--color-bg-l': 12,
-		'--color-bg-s-step': 0,
-		'--color-bg-l-step': 8,
+		'--color-bg-h': 150,
+		'--color-bg-s': 45,
+		'--color-bg-l': 98,
+		'--color-bg-s-step': 5,
+		'--color-bg-l-step': -8,
 		'--color-bg-0':
 				'hsl(var(--color-bg-h), calc(calc(var(--color-bg-s) + calc(var(--color-bg-s-step) * 1)) * 1%), calc(calc(var(--color-bg-l) - calc(var(--color-bg-l-step) * 1)) * 1%))',
 		'--color-bg-1':

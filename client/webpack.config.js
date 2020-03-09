@@ -151,6 +151,13 @@ module.exports = {
 			filename: 'index.html',
 			template: path.join(__dirname, 'template.html')
 		}),
+		new webpack.ProvidePlugin({
+			'React': 'react',
+			'ReactDOM': 'react-dom',
+			'$': 'jquery',
+			'jQuery': 'jquery'
+		}),
+
 		new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.NamedModulesPlugin(),
 		new webpack.HotModuleReplacementPlugin()

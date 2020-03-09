@@ -152,6 +152,8 @@ class Sidebar extends React.PureComponent {
 					settingSelect: false,
 					messageSelect: true
 				});
+			} else {
+				// this.props.history.push('/home/index');
 			}
 		});
 

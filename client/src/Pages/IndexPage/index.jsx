@@ -18,7 +18,7 @@ import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import { compose } from 'recompose';
 import s from './style.css';
-import Loading from '../../components/loading';
+import LoadingHoc from '../../components/loadingHoc';
 import SideBar from './sidebar';
 class Index extends React.PureComponent {
 	constructor (props) {
@@ -250,4 +250,4 @@ export default compose(
 		  }
 	  }
   `)
-)(Loading(Index));
+)(LoadingHoc(Index));

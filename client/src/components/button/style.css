@@ -1,0 +1,22 @@
+.button {
+	background-color: hsl(168,55%,50%);
+	border-radius: 5px;
+	color:hsl(0,0%,100%);
+	text-align: center;
+	display: inline-block;
+	padding: 1px 5px;
+	font-size: 0.8rem;
+	min-width: 4rem;
+	.text{
+		height: 100%;
+		line-height: 2.3;
+		vertical-align: middle;
+	}
+	&:hover{
+		cursor: pointer;
+		background-color: hsl(168,55%,45%);
+	}
+}
+.default{
+	height: 2rem;
+}
