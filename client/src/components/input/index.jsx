@@ -15,7 +15,9 @@ export default class Input extends React.PureComponent {
 		onPressEnter: PropTypes.func,
 		onChange: PropTypes.func,
 		fucusHandler: PropTypes.func,
-		size: PropTypes.oneOf(['small', 'default', 'large'])
+		size: PropTypes.oneOf(['small', 'default', 'large']),
+		searchHandler: PropTypes.func,
+		placeholder: PropTypes.string
 	};
 
 	static defaultProps = {
@@ -25,10 +27,12 @@ export default class Input extends React.PureComponent {
 		allowClear: false,
 		onChange () {},
 		fucusHandler () {},
-		size: 'default'
+		searchHandler () {},
+		size: 'default',
+		placeholder: '搜索'
 	};
 	render () {
-		const {className, type, onChange, value, fucusHandler, size} = this.props;
+		const {className, type, onChange, searchHandler, value, fucusHandler, placeholder, size} = this.props;
 		return (
 			<div className={ cn(className, s.input) }>
 				<div className={ s.asideSearch }>
@@ -36,14 +40,14 @@ export default class Input extends React.PureComponent {
 						<div className={ s.comSearch }>
 							<
 								input type={ type }
-								placeholder="搜索"
+								placeholder= { placeholder }
 								value={ value }
 								className={ cn(s.searchInput, s[size]) }
 								onChange={ onChange }
 								maxLength="20"
 								onFocus={ fucusHandler }
 							/>
-							<button type="button" className={ s.searchBtn } onClick={ this.searchHandler }> 搜索</button>
+							<button type="button" className={ s.searchBtn } onClick={ searchHandler }> 搜索</button>
 						</div>
 					</div>
 				</div>

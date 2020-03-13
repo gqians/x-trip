@@ -42,7 +42,7 @@ class Index extends React.PureComponent {
 		route: this.props.data.RouteFindMany.length,
 		touristSpot: this.props.data.TouristSpotsFindMany.length,
 		ghandruk: this.props.data.HotelFindMany.length,
-		order: 0,
+		order: this.props.data.TouristFindMany.length,
 		active: 0,
 
 		touristSpotMakers: null,
@@ -148,7 +148,7 @@ class Index extends React.PureComponent {
 		});
 	}
 	orderHandler =() => {
-		this.props.history.push('/home/order');
+		this.props.history.push('/home/tourist');
 	}
 	render () {
 		console.log('index-渲染');
@@ -171,7 +171,7 @@ class Index extends React.PureComponent {
 				key: 2,
 				handler: this.hotelHandler
 			}, {
-				name: '未处理订单',
+				name: '已注册用户',
 				num: order,
 				key: 3,
 				handler: this.orderHandler
@@ -247,7 +247,10 @@ export default compose(
 			hotelType
 			lat
 			lng
-		  }
+		}
+		TouristFindMany{
+			name
+		}
 	  }
   `)
 )(LoadingHoc(Index));

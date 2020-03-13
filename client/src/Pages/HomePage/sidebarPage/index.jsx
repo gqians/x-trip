@@ -67,7 +67,7 @@ class Sidebar extends React.PureComponent {
 					settingSelect: false,
 					messageSelect: false
 				});
-			} else if (e.pathname === '/home/product') {
+			} else if (e.pathname.startsWith('/home/product')) {
 				this.setState({
 					indexColor: '#9fa4b2',
 					orderColor: '#9fa4b2',
@@ -191,7 +191,7 @@ class Sidebar extends React.PureComponent {
 				settingSelect: false,
 				messageSelect: false
 			});
-		} else if (this.props.history.location.pathname === '/home/product') {
+		} else if (this.props.history.location.pathname.startsWith('/home/product')) {
 			this.setState({
 				indexColor: '#9fa4b2',
 				orderColor: '#9fa4b2',
@@ -293,7 +293,7 @@ class Sidebar extends React.PureComponent {
 				icon: `<svg t="1581948565477" style="vertical-align:middle" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5719" width="20" height="20"><path d="M864.75 97h-705.5C124.93 97 97 124.93 97 159.25v705.5c0 34.32 27.93 62.25 62.25 62.25h705.5c34.32 0 62.25-27.93 62.25-62.25v-705.5C927 124.93 899.07 97 864.75 97z m-168.49 41.5v141.14H327.74V138.5h368.52zM885.5 864.75c0 11.45-9.3 20.75-20.75 20.75h-705.5c-11.45 0-20.75-9.3-20.75-20.75v-705.5c0-11.45 9.3-20.75 20.75-20.75h126.99v145.29c0 20.58 16.77 37.35 37.35 37.35h376.82c20.58 0 37.35-16.77 37.35-37.35V138.5h126.99c11.45 0 20.75 9.3 20.75 20.75v705.5z" p-id="5720" fill=${ orderColor }></path><path d="M717.01 509.09H306.99c-11.46 0-20.75-9.29-20.75-20.75s9.29-20.75 20.75-20.75h410.02c11.46 0 20.75 9.29 20.75 20.75s-9.29 20.75-20.75 20.75zM622.39 666.79h-315.4c-11.46 0-20.75-9.29-20.75-20.75s9.29-20.75 20.75-20.75h315.4c11.46 0 20.75 9.29 20.75 20.75s-9.29 20.75-20.75 20.75z" p-id="5721" fill=${ orderColor }></path></svg>`
 			}, {
 				name: '商品管理',
-				link: '/home/product',
+				link: '/home/product/tourist',
 				select: productSelect,
 				icon: `<svg t="1581949547170" style="vertical-align:middle" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6319" width="20" height="20"><path d="M173.9 447.7h212.5c36.9 0 67.1-30.2 67.1-67.1V168c0-36.9-30.2-67.1-67.1-67.1H173.9c-36.9 0-67.1 30.2-67.1 67.1v212.5c0 37 30.2 67.2 67.1 67.2zM167.3 168c0-3.5 3.1-6.6 6.6-6.6h212.5c3.5 0 6.6 3.1 6.6 6.6v212.5c0 3.5-3.1 6.6-6.6 6.6H173.9c-3.5 0-6.6-3.1-6.6-6.6V168zM640.9 447.7h212.5c36.9 0 67.1-30.2 67.1-67.1V168c0-36.9-30.2-67.1-67.1-67.1H640.9c-36.9 0-67.1 30.2-67.1 67.1v212.5c0 37 30.2 67.2 67.1 67.2z m0-286.3h212.5c3.5 0 6.6 3.1 6.6 6.6v212.5c0 3.5-3.1 6.6-6.6 6.6H640.9c-3.5 0-6.6-3.1-6.6-6.6V168c0-3.5 3.1-6.6 6.6-6.6zM129.6 605.8h768.2c16.7 0 30.3-13.5 30.3-30.3s-13.5-30.3-30.3-30.3H129.6c-16.7 0-30.3 13.5-30.3 30.3s13.6 30.3 30.3 30.3zM897.7 703.7H129.6c-16.7 0-30.3 13.5-30.3 30.3 0 16.7 13.5 30.3 30.3 30.3h768.2c16.7 0 30.3-13.5 30.3-30.3-0.1-16.7-13.7-30.3-30.4-30.3zM897.7 862.2H129.6c-16.7 0-30.3 13.5-30.3 30.3s13.5 30.3 30.3 30.3h768.2c16.7 0 30.3-13.5 30.3-30.3s-13.7-30.3-30.4-30.3z" p-id="6320" fill=${ productColor }></path></svg>`
 			}, {

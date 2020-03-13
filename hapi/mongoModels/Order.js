@@ -27,6 +27,13 @@ const Order = new Schema({
 	tourist_Id:{
 		type: Schema.Types.ObjectId,
 		require: true
+	},
+	complete:{
+		type: Boolean,
+		default: false
+	},
+	name:{
+		type: String
 	}
 })
 export default Order;

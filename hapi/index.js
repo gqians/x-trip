@@ -6,7 +6,8 @@ import getToken from './plugins/route/getToken';
 import graphql from './plugins/graphqlInit';
 // import test from './plugins/graphql/schema/test';
 // import test2 from './plugins/graphql/schema/test2';
-import graphqlSchema from './plugins/graphql'
+import graphqlSchema from './plugins/graphql';
+import order from './plugins/graphql/schema/orderSchema';
 const init = async () => {
 	const server = Hapi.server({
 		port: config.hapi.port,
@@ -26,6 +27,9 @@ const init = async () => {
 		options: config
 	}, {
 		plugin: graphqlSchema,
+		options: config
+	},{
+		plugin: order,
 		options: config
 	}]);
 	await server.start();

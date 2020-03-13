@@ -7,8 +7,7 @@ const graphqlPlugin = {
 			name: 'Tourist',
 			schema: TouristSchema
 		});
-		const orderTC = server.app.schema.Order;
-		console.log(orderTC);
+		// const orderTC = server.app.schema.Order;
 		server.methods.registerGraphQLSchema({
 			name: 'Tourist',
 			model: Tourist,
@@ -31,16 +30,16 @@ const graphqlPlugin = {
 				RemoveMany: 'removeMany',
 			},
 			onPreAddFields(tc){
-				tc.addRelation(
-					'getOrder',
-					{
-					  resolver: () => orderTC.getResolver('findByIds'),
-					  prepareArgs: { // resolver `findByIds` has `_ids` arg, let provide value to it
-						_ids: (source) => source.orderId,
-					  },
-					projection: { orderId: true }, // point fields in source object, which should be fetched from DB
-					}
-				);
+				// tc.addRelation(
+				// 	'getOrder',
+				// 	{
+				// 	  resolver: () => orderTC.getResolver('findByIds'),
+				// 	  prepareArgs: { // resolver `findByIds` has `_ids` arg, let provide value to it
+				// 		_ids: (source) => source.orderId,
+				// 	  },
+				// 	projection: { orderId: true }, // point fields in source object, which should be fetched from DB
+				// 	}
+				// );
 				tc.setResolver(
 					'pagination',
 					tc.getResolver('pagination').addFilterArg({
@@ -48,12 +47,11 @@ const graphqlPlugin = {
 						type: 'String',
 						description: '正则过滤: target.name',
 						query: (query, value) => {
-							console.log(query);
-							console.log(value);
 							query['name'] = { $regex: value, $options: 'i' };
 						},
 					})
 				);
+				return tc;
 			}
 		});
 	}

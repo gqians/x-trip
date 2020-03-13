@@ -24,6 +24,7 @@ const HocComponent = (ParameterComponent) =>
 		};
 		componentDidMount () {
 			console.log('进入高阶组件');
+			console.log(this.props);
 			const {data} = this.props;
 			if (data.error) {
 				this.setState({error: true});

@@ -15,14 +15,14 @@
 		}
 	}
 	.second-row{
-		height: 15rem;
 		text-align: end;
-		padding: 2rem 2rem;
+		padding: 1rem 2rem;
 		.select {
 			display: inline-block;
 			width: 20rem;
 			position: relative;
-      z-index: 2;
+			z-index: 2;
+			padding: 1rem;
 		}
 		.add{
 			display: inline-block;
@@ -32,6 +32,16 @@
 		flex-grow: 1;
 		.table-wapper {
 			margin: 0.8rem 1.8rem 0.7rem 1.3rem;
+			.setting{
+				font-size: 0.8rem;
+				color: hsl(225,7%,53%);
+				.addBlack{
+					&:hover{
+						cursor: pointer;
+						color: hsl(168,55%,50%);
+					}
+				}
+			}
 			.icon{
 				height: 100%;
 				.n-vip{

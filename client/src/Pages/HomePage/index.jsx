@@ -6,6 +6,7 @@ import Sidebar from './sidebarPage';
 import Index from '../IndexPage';
 import Report from '../ReportPage';
 import Tourist from '../TouristPage';
+import Product from '../ProductPage';
 import s from './style.css';
 // import Index from '../IndexPage';
 function Home () {
@@ -20,6 +21,7 @@ function Home () {
 					<Route path="/home/order" component={ Order } />
 					<Route path="/home/report" component={ Report }/>
 					<Route path="/home/tourist" component={ Tourist }/>
+					<Route path="/home/product" component={ Product }/>
 				</Router>
 			</div>
 		</div>

@@ -1,44 +1,4 @@
-{"name":"trip","hostname":"ubuntu-qianh","pid":12863,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T00:49:31.158Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":12863,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T00:49:31.158Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":12863,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T00:49:31.171Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":12863,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T00:49:31.171Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26386,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T06:51:03.015Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26386,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T06:51:03.015Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26386,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T06:51:03.034Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26386,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T06:51:03.034Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26538,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T06:53:19.474Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26538,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T06:53:19.474Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26538,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T06:53:19.493Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26538,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T06:53:19.493Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26747,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T07:01:07.241Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26747,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T07:01:07.241Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26747,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T07:01:07.258Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26747,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T07:01:07.258Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26811,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T07:02:26.363Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26811,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T07:02:26.363Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26811,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T07:02:26.383Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":26811,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T07:02:26.383Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27023,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T07:09:44.241Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27023,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T07:09:44.241Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27023,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T07:09:44.265Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27023,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T07:09:44.265Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27303,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T07:19:45.771Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27303,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T07:19:45.771Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27303,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T07:19:45.790Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27303,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T07:19:45.790Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27772,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T07:38:29.237Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27772,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T07:38:29.237Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27772,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T07:38:29.257Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":27772,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T07:38:29.257Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28672,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T08:09:42.597Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28672,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T08:09:42.597Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28672,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T08:09:42.614Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28672,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T08:09:42.614Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28936,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T08:13:11.076Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28936,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T08:13:11.076Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28936,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T08:13:11.094Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":28936,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T08:13:11.094Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":29003,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T08:13:17.914Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":29003,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-09T08:13:17.914Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":29003,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T08:13:17.931Z","v":0}
-{"name":"trip","hostname":"ubuntu-qianh","pid":29003,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-09T08:13:17.931Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":7851,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-13T11:03:38.059Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":7851,"level":30,"msg":"Server running on http://localhost:8090","time":"2020-03-13T11:03:38.059Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":7851,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-13T11:03:38.070Z","v":0}
+{"name":"trip","hostname":"ubuntu-qianh","pid":7851,"level":30,"msg":"hapi/plugins/mongoInit mongo连接成功！！","time":"2020-03-13T11:03:38.070Z","v":0}

@@ -30,10 +30,14 @@ const graphqlPlugin = {
 			},
 			onPreAddFields = x => x
 		}) => {
-			const tc = composeWithMongoose(model, customizationOptions);
-			server.app.schema = server.app.schema ? server.app.schema : {};
-			server.app.schema[schemaName] = onPreAddFields(tc);
+			let tc = composeWithMongoose(model, customizationOptions);
+			server.app.schema = server.app.schema || {};
+			server.app.schema[schemaName] = tc = onPreAddFields(tc);
+			if(server.app.schema[schemaName]){
+					console.log("运行完成 "+schemaName);
+				}
 			Object.entries(queryFields).forEach(([suffix, resolerName]) => {
+
 				schemaComposer.Query.addFields({
 					[`${schemaName}${suffix}`]: tc.getResolver(resolerName)
 				});
@@ -47,6 +51,9 @@ const graphqlPlugin = {
 					});
 				}
 			);
+			if(schemaName==='Order'){
+				// console.dir(schemaComposer);
+			}
 			return tc;
 		});
 		server.ext('onPreStart', async () => {

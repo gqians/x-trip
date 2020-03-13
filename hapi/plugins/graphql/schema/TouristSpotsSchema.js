@@ -49,6 +49,7 @@ const graphqlPlugin = {
 						},
 					})
 				);
+				return tc;
 			}
 		});
 	}
