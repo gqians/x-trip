@@ -7,6 +7,7 @@ const graphqlPlugin = {
 			name: 'Route',
 			schema: hotelSchema
 		});
+		const TouristSpotsTC = server.app.schema.TouristSpots;
 		server.methods.registerGraphQLSchema({
 			name: 'Route',
 			model: Hotel,
@@ -15,6 +16,7 @@ const graphqlPlugin = {
 				FindMany: 'findMany',
 				FindById: 'findById',
 				FindByIds: 'findByIds',
+				Pagination: 'pagination'
 			},
 			mutationFields: {
 				CreateOne: 'createOne',
@@ -25,6 +27,30 @@ const graphqlPlugin = {
 				RemoveById: 'removeById',
 				RemoveOne: 'removeOne',
 				RemoveMany: 'removeMany'
+			},
+			onPreAddFields(tc){
+				tc.addRelation(
+					'getRoute',
+					{
+						resolver: () => TouristSpotsTC.getResolver('findByIds'),
+						prepareArgs: {
+							_ids: (source) => source.touristSportIds,
+						},
+						projection: { touristSportIds: true }
+					}
+				);
+				tc.setResolver(
+					'pagination',
+					tc.getResolver('pagination').addFilterArg({
+						name: 'nameRegex',
+						type: 'String',
+						description: '正则过滤: target.name',
+						query: (query, value) => {
+							query['name'] = { $regex: value, $options: 'i' };
+						},
+					})
+				);
+				return tc;
 			}
 		});
 	}

@@ -536,6 +536,6 @@
 	}
 	.rc-tabs-top .rc-tabs-tabpane-inactive {
 		height: 0;
-		？overflow: visible;
+	overflow: visible;
 	}
 }

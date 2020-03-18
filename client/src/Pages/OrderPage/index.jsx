@@ -33,8 +33,8 @@ class Order extends React.PureComponent {
 		}).isRequired,
 		location: PropTypes.shape({
 			search: PropTypes.string.isRequired
-		}).isRequired
-		// TouristUpdateById: PropTypes.func
+		}).isRequired,
+		TouristUpdateById: PropTypes.func
 	};
 	static defaultProps = {
 		className: '',
@@ -129,7 +129,7 @@ class Order extends React.PureComponent {
 				return (
 					<div className={ s.setting }>
 						<div className={ s.addBlack } onClick={ () => { this.addBlackHandler(recode._id, !recode.complete); } }>{!recode.complete ? '订单完成' : ''}</div>
-						<div className={ s.addBlack } onClick={ () => { this.findProduct(); } }>查看商品</div>
+						{/* <div className={ s.addBlack } onClick={ () => { this.findProduct(); } }>查看商品</div> */}
 					</div>
 				);
 			}

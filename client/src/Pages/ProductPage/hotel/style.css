@@ -1,0 +1,56 @@
+.tourist{
+	height:100%;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	position: relative;
+	.first-row{
+		padding-right: 2rem;
+		text-align: end;
+		.search{
+			display: inline-block;
+			.input{
+				display: inline-block;
+			}
+		}
+	}
+	.second-row{
+		text-align: end;
+		padding: 1rem 2rem;
+		.space{
+			display: inline-block;
+			width: 2rem;
+		}
+	}
+	.third-row{
+		flex-grow: 1;
+		.table-wapper {
+			margin: 0.8rem 2rem 0.7rem 1.3rem;
+			.address{
+				overflow: hidden;
+				width: 10rem;
+				height: 2rem;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.price{
+				overflow: hidden;
+				width: 6rem;
+				height: 2rem;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			.setting{
+				font-size: 0.8rem;
+				color: hsl(225,7%,53%);
+				position: relative;
+				.addBlack{
+					&:hover{
+						cursor: pointer;
+						color: hsl(168,55%,50%);
+					}
+				}
+			}
+		}
+	}
+}

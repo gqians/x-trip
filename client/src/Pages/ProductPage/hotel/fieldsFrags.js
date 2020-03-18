@@ -1,10 +1,9 @@
 import gql from 'graphql-tag';
 
 export default gql`
-	fragment touristSpotsFields on TouristSpots{
+	fragment hotelFields on Hotel{
 		_id
 		name
-		addedTime
 		address
 		lat
 		lng
@@ -13,6 +12,8 @@ export default gql`
 		star
 		price
 		url
+		phoneNumber
+		hotelType
 		onSale
 		businessHours{
 			startTime

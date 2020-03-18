@@ -55,7 +55,8 @@ module.exports = {
 		port: 9000,
 		proxy: {
 			'/login': 'http://localhost:8090',
-			'/graphql': 'http://localhost:8090'
+			'/graphql': 'http://localhost:8090',
+			'/upload': 'http://localhost:8090'
 		}
 	},
 	module: {

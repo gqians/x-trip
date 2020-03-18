@@ -5,18 +5,12 @@ import Tabs, { TabPane } from 'rc-tabs';
 import TabContent from 'rc-tabs/lib/TabContent';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import s from './style.css';
-// const example = [
-// 	{
-// 		path: '',
-// 		title: '',
-// 		component: ''
-// 	}
-// ];
+
 const callback = (tabs, history) => {
 	history.push(tabs);
 	console.log(history.location.pathname + history.location.search);
 };
-function BreadCrumb (tabs, history) {
+function BreadCrumb (tabs, history, showPop) {
 	return (
 		<>
 			<div className={ s.breadCrumb }>

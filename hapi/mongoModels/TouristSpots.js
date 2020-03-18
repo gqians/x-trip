@@ -48,6 +48,10 @@ const TouristSpotsSchema = new Schema({
 		endTime:{
 			type:Date
 		}
+	},
+	onSale:{
+		type: Boolean,
+		default: true
 	}
 });
 export default TouristSpotsSchema;

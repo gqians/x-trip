@@ -71,7 +71,7 @@ class sidebar extends React.PureComponent {
 			// 生成路线marker layer
 			routeMakers = L.layerGroup();
 			const path = [];
-			ele.touristSport.forEach(spot => {
+			ele.getRoute.forEach(spot => {
 				const title = spot.name;
 				const lat = spot.lat;
 				const lng = spot.lng;

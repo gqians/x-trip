@@ -2,10 +2,15 @@ import React from 'react';
 import Button from '../../../components/button';
 import Input from '../../../components/input';
 import List from '../../../components/list';
+import Pop from '../popLayer';
 import fieldFragment from './fieldsFrags';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import s from './style.css';
+import Dialog from 'rmc-dialog';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
+import { compose } from 'recompose';
 const routePrefix = './tourist';
 class ProductTourist extends React.PureComponent {
 	static propTypes = {
@@ -13,12 +18,14 @@ class ProductTourist extends React.PureComponent {
 		rolesMap: PropTypes.object,
 		history: PropTypes.shape({
 			push: PropTypes.func.isRequired,
-			replace: PropTypes.func.isRequired
-		}).isRequired,
+			replace: PropTypes.func.isRequired,
+			go: PropTypes.func.isRequired
+		}),
 		location: PropTypes.shape({
 			search: PropTypes.string.isRequired
-		}).isRequired
-		// TouristUpdateById: PropTypes.func
+		}),
+		TouristSpotsUpdateById: PropTypes.func,
+		TouristSpotsCreateOne: PropTypes.func
 	};
 	static defaultProps = {
 		className: '',
@@ -26,8 +33,10 @@ class ProductTourist extends React.PureComponent {
 	};
 	state={
 		searchValue: '',
-		showPop: false
-	}
+		showDialog: false,
+		myrecode: null,
+		showDialogAdd: false
+	};
 	columnsBuilder = () => [
 		{
 			title: '景点名',
@@ -63,23 +72,43 @@ class ProductTourist extends React.PureComponent {
 			}
 		},
 		{
+			title: '状态',
+			key: 'status',
+			dataIndex: 'name',
+			render (x, recode) {
+				return <div className={ s.price }>{recode.onSale ? '正在售卖' : '已下架'}</div>;
+			}
+		},
+		{
 			title: '',
 			key: 'setting',
 			dataIndex: '',
 			render: (x, recode) => {
 				return (
 					<div className={ s.setting }>
-						<div className={ s.addBlack } onClick={ () => { this.addBlackHandler(); } }>修改信息</div>
+						<div className={ s.addBlack } onClick={ () => { this.addBlackHandler(recode); } }>修改信息</div>
+						<div className={ s.addBlack } onClick={ () => { this.offSale(recode._id, !recode.onSale); } }>
+							{
+								recode.onSale ? '下架商品' : '上架商品'
+							}
+						</div>
 					</div>
 				);
 			}
 		}
 	]
 	// 函数
-	addBlackHandler=() => {
-		const { showPop } = this.state;
+	offSale=(id, offSale) => {
+		const { TouristSpotsUpdateById } = this.props;
+		TouristSpotsUpdateById(id, offSale).then((res) => {
+			this.props.history.go(0);
+		});
+	}
+	addBlackHandler=(recode) => {
+		const { showDialog } = this.state;
 		this.setState({
-			showPop: !showPop
+			showDialog: !showDialog,
+			myrecode: recode
 		});
 	}
 	/**
@@ -120,10 +149,55 @@ class ProductTourist extends React.PureComponent {
 			searchValue: e.target.value
 		});
 	}
+	dialogClose=() => {
+		const { showDialog } = this.state;
+		this.setState({
+			showDialog: !showDialog
+		});
+	}
+	resetHandler=() => {
+		this.setState({
+			searchValue: ''
+		}, this.handleFilterChange({}));
+	}
+	addProduct=() => {
+		const { showDialogAdd } = this.state;
+		this.setState({
+			showDialogAdd: !showDialogAdd
+		});
+	}
+	dialogCloseAdd=() => {
+		const { showDialogAdd } = this.state;
+		this.setState({
+			showDialogAdd: !showDialogAdd
+		});
+	}
 	render () {
-		const { searchValue } = this.state;
+		const { searchValue, showDialog, myrecode, showDialogAdd } = this.state;
 		return (
 			<div className={ s.tourist }>
+				<Dialog
+					title="修改商品信息"
+					visible={ showDialog }
+					onClose={ this.dialogClose }
+					animation="zoom"
+					maskAnimation="fade"
+					style={ { width: '70%' } }
+				>
+					<Pop GraphqlMethod={ this.props.TouristSpotsUpdateById } myrecode={ myrecode }/>
+				</Dialog>
+				<Dialog
+					title="新增旅游点"
+					visible={ showDialogAdd }
+					onClose={ this.dialogCloseAdd }
+					animation="zoom"
+					maskAnimation="fade"
+					style={ { width: '80%' } }
+				>
+					<Pop GraphqlMethod={ this.props.TouristSpotsCreateOne } fileds={
+						['name', 'address', 'lat', 'lng', 'description', 'price', 'startTime', 'endTime', 'picture'] }
+					/>
+				</Dialog>
 				<div className={ s.firstRow }>
 					<div className={ s.search }>
 						<Input
@@ -137,9 +211,9 @@ class ProductTourist extends React.PureComponent {
 					</div>
 				</div>
 				<div className={ s.secondRow }>
-					<Button text="添加旅游点" />
+					<Button text="添加旅游点" onClick={ this.addProduct }/>
 					<span className={ s.space } />
-					<Button text="重置"/>
+					<Button text="重置" onClick={ this.resetHandler } />
 				</div>
 				<div className={ s.thirdRow }>
 					<List
@@ -155,4 +229,114 @@ class ProductTourist extends React.PureComponent {
 		);
 	}
 }
-export default ProductTourist;
+export default compose(
+	graphql(gql`
+		mutation($id: MongoID!,$name:String,$address:String,$lat:String,$lng:String,$picture:String,$description:String,$price:String,$startTime:Date,$endTime:Date,$onSale:Boolean) {
+			TouristSpotsUpdateById(record:{
+				name:$name
+				_id:$id
+				address:$address
+				lat:$lat
+				lng:$lng
+				picture:$picture
+				description:$description
+				price:$price
+				onSale:$onSale
+				businessHours:{
+				startTime:$startTime
+				endTime:$endTime
+				}
+			  }) {
+				record{
+					name
+					addedTime
+					address
+					lat
+					lng
+					picture
+					description
+					star
+					price
+					url
+					businessHours{
+						startTime
+						endTime
+					}
+				}
+			}
+		}
+  `, {
+		props ({
+			mutate
+			// ownProps: {
+			// 	data: { refetch }
+			// }
+		}) {
+			return {
+				TouristSpotsUpdateById (id, onSale, name, address, lat, lng, description, price, startTime, endTime, picture) {
+					return mutate({
+						variables: {
+							id,
+							onSale,
+							name,
+							address,
+							lat,
+							lng,
+							description,
+							price,
+							startTime,
+							endTime,
+							picture
+						}
+					});
+				}
+			};
+		}
+	}),
+	graphql(gql`
+	mutation($name:String!,$address:String,$lat:String!,$lng:String!,$description:String,$price:String,$startTime:Date,$endTime:Date,$picture:String) {
+		TouristSpotsCreateOne(record:{
+			name:$name
+			address:$address
+			lat:$lat
+			lng:$lng
+			picture:$picture
+			description:$description
+			price:$price
+			businessHours:{
+			startTime:$startTime
+			endTime:$endTime
+			}
+		  }) {
+			record{
+				name
+			}
+		}
+	}
+`, {
+		props ({
+			mutate
+		// ownProps: {
+		// 	data: { refetch }
+		// }
+		}) {
+			return {
+				TouristSpotsCreateOne (name, address, lat, lng, description, price, startTime, endTime, picture) {
+					return mutate({
+						variables: {
+							name,
+							address,
+							lat,
+							lng,
+							description,
+							price,
+							startTime,
+							endTime,
+							picture
+						}
+					});
+				}
+			};
+		}
+	})
+)(ProductTourist);

@@ -223,20 +223,20 @@ export default compose(
 		}
 		RouteFindMany{
 			name
-			touristSport{
-				name
-				addedTime
-				address
-				lat
-				lng
-				picture
-				description
-				star
-				price
-				url
-			}
 			tips
-		}
+			getRoute {
+			  name
+			  addedTime
+			  address
+			  lat
+			  lng
+			  picture
+			  description
+			  star
+			  price
+			  url
+			}
+		  }
 		HotelFindMany(limit:20000){
 			name
 			province

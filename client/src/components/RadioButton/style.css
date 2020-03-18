@@ -1,0 +1,44 @@
+.radio-button {
+	display: inline-block;
+	vertical-align: middle;
+	border: 1px solid var(--color-border-0);
+	border-radius: 4px;
+
+	.origin {
+		padding: 0.5rem 0.75rem;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+
+		.circle {
+			width: 0.75rem;
+			height: 0.75rem;
+			border: 1px solid var(--color-border-0);
+			border-radius: 0.5rem;
+			margin-right: 0.5rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	&.checked {
+		border: 1px solid var(--color-5);
+
+		.circle {
+			background-color: var(--color-5);
+			border-color: var(--color-5);
+
+			.center {
+				width: 0.25rem;
+				height: 0.25rem;
+				border-radius: 50%;
+				background-color: var(--color-bg-0);
+			}
+		}
+	}
+
+	&:hover {
+		border: 1px solid var(--color-5);
+	}
+}

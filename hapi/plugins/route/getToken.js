@@ -1,5 +1,8 @@
 import { hapiAuthJWT, makeToken, cookieOptions } from '../../auth';
 import adminSchema from '../../mongoModels/Administrator';
+import fs from 'fs';
+import path from 'path';
+import { JsonWebTokenError } from 'jsonwebtoken';
 const routeGetTokenPlugin = {
 	name: 'authInit',
 	version: '1.0.0',
@@ -94,6 +97,41 @@ const routeGetTokenPlugin = {
 					} else {
 						return h.response({ state: false, message: '用户名已存在，请直接登录' }).code(200);
 					}
+				}
+			}
+		},{
+			method:'POST',
+			path:'/upload',
+			config:{
+				auth:'jwt',
+				payload:{
+					output: 'stream',
+					parse: 'true',
+					allow: 'multipart/form-data',
+					multipart: true
+			    },
+				handler: function (request, h) {
+					const data = request.payload;
+					console.dir(data);
+					if (data.file) {
+						const name = data.file.hapi.filename;
+						const mypath = path.resolve(process.cwd(),'./hapi/static/picture') +'/'+ name;
+						console.log(mypath);
+						const file = fs.createWriteStream(mypath);
+
+						file.on('error', (err) => console.error(err));
+
+						data.file.pipe(file);
+
+						data.file.on('end', (err) => {
+							const ret = {
+								filename: data.file.hapi.filename,
+								headers: data.file.hapi.headers
+							}
+							return JSON.stringify(ret);
+						})
+					}
+					return h.response(request.payload).code(200);
 				}
 			}
 		}

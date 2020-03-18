@@ -1,16 +1,19 @@
 import { Schema } from 'mongoose';
-import touristSport from './TouristSpots'
 const routeSchema = new Schema({
 	name: {
 		type: String,
 		required: true
 	},
-	touristSport:{
-		type:[touristSport],
+	touristSportIds:{
+		type:[Schema.Types.ObjectId],
 		default:[]
 	},
 	tips:{
 		type:String
+	},
+	onSale:{
+		type: Boolean,
+		default: true
 	}
 });
 export default routeSchema;
