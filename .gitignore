@@ -34,3 +34,6 @@ Thumbs.db
 
 # vscode
 *.code-workspace
+
+# png
+.png

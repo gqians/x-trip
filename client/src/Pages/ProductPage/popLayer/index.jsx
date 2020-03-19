@@ -224,36 +224,46 @@ class ProductRoute extends React.PureComponent {
 						/>
 					</div>
 				</div>
-				<div className={ s.secondRow }>
-					<div className={ s.title }>
-						请输入住宿点类型:
-					</div>
-					<div className={ s.input }>
-						<Input
-							size="default"
-							value={ hotelType }
-							// searchHandler={ this.searchHandler }
-							onChange={ (e) => this.searchChangeHandler('hotelType', e) }
-							placeholder="请输入住宿点类型"
-							showIcon={ false }
-						/>
-					</div>
-				</div>
-				<div className={ s.secondRow }>
-					<div className={ s.title }>
-						请输入住宿点电话号码:
-					</div>
-					<div className={ s.input }>
-						<Input
-							size="default"
-							value={ phoneNumber }
-							// searchHandler={ this.searchHandler }
-							onChange={ (e) => this.searchChangeHandler('phoneNumber', e) }
-							placeholder="输入电话号码"
-							showIcon={ false }
-						/>
-					</div>
-				</div>
+				{
+					this.props.fileds.indexOf('hotelType') < 0 ||
+					(
+						<div className={ s.secondRow }>
+							<div className={ s.title }>
+								请输入住宿点类型:
+							</div>
+							<div className={ s.input }>
+								<Input
+									size="default"
+									value={ hotelType }
+									// searchHandler={ this.searchHandler }
+									onChange={ (e) => this.searchChangeHandler('hotelType', e) }
+									placeholder="请输入住宿点类型"
+									showIcon={ false }
+								/>
+							</div>
+						</div>
+					)
+				}
+				{
+					this.props.fileds.indexOf('phoneNumber') < 0 ||
+					(
+						<div className={ s.secondRow }>
+							<div className={ s.title }>
+								请输入住宿点电话号码:
+							</div>
+							<div className={ s.input }>
+								<Input
+									size="default"
+									value={ phoneNumber }
+									// searchHandler={ this.searchHandler }
+									onChange={ (e) => this.searchChangeHandler('phoneNumber', e) }
+									placeholder="输入电话号码"
+									showIcon={ false }
+								/>
+							</div>
+						</div>
+					)
+				}
 				<div className={ s.secondRow }>
 					<div className={ s.title }>
 						请输入经度:

@@ -4,31 +4,13 @@ import React from 'react';
 // import gql from 'graphql-tag';
 // import { graphql } from 'react-apollo';
 import s from './style.css';
-import Layout from './layout';
+// import Layout from './layout';
+// import LayoutCopy from './layout_copy';
 import GoldenLayout from 'golden-layout';
+import SideBar from './sidebar';
 import 'golden-layout/src/css/goldenlayout-base.css';
 import 'golden-layout/src/css/goldenlayout-light-theme.css';
-// var myLayout1 = new GoldenLayout({
-// 	content: [{
-// 		type: 'row',
-// 		content: [{
-// 			type: 'react-component',
-// 			component: 'test-component',
-// 			props: { label: 'A' }
-// 		}, {
-// 			type: 'column',
-// 			content: [{
-// 				type: 'react-component',
-// 				component: 'test-component',
-// 				props: { label: 'B' }
-// 			}, {
-// 				type: 'react-component',
-// 				component: 'test-component',
-// 				props: { label: 'C' }
-// 			}]
-// 		}]
-// 	}]
-// }, '#report');
+import config from './config';
 class Report extends React.PureComponent {
 	state={
 		layout: null
@@ -36,7 +18,7 @@ class Report extends React.PureComponent {
 	componentDidMount () {
 		const myLayout = new GoldenLayout({
 			content: [{
-				type: 'row',
+				type: 'column',
 				content: [{
 					type: 'react-component',
 					component: 'test-component',
@@ -46,7 +28,7 @@ class Report extends React.PureComponent {
 					type: 'column',
 					content: [{
 						type: 'react-component',
-						component: 'test-component',
+						component: 'test-component1',
 						id: 'ec2',
 						props: { label: 'B' }
 					}, {
@@ -62,7 +44,12 @@ class Report extends React.PureComponent {
 		// 	console.log('123');
 		// });
 		setTimeout(() => {
-			myLayout.registerComponent('test-component', Layout);
+			// myLayout.registerComponent('test-component', Layout);
+			// myLayout.registerComponent('test-component1', LayoutCopy);
+			// myLayout.registerComponent('test-component3', LayoutCopy);
+			for (const item of config) {
+				myLayout.registerComponent(item.name, item.component);
+			}
 			myLayout.init();
 			console.log(myLayout.toConfig());
 			this.setState({
@@ -71,8 +58,13 @@ class Report extends React.PureComponent {
 		}, 0);
 	}
 	render () {
+		const {layout} = this.state;
 		return (
-			<div className={ s.report } id="report" />
+			<div className={ s.container }>
+				<div className={ s.report } id="report">
+					<SideBar layout={ layout }/>
+				</div>
+			</div>
 		);
 	}
 }
