@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import gql from 'graphql-tag';
@@ -10,8 +9,23 @@ import GoldenLayout from 'golden-layout';
 import SideBar from './sidebar';
 import 'golden-layout/src/css/goldenlayout-base.css';
 import 'golden-layout/src/css/goldenlayout-light-theme.css';
+import LoadingHoc from '../../components/loadingHoc';
 import config from './config';
+import PropTypes from 'prop-types';
+import gql from 'graphql-tag';
+import { graphql } from 'react-apollo';
+import { compose } from 'recompose';
 class Report extends React.PureComponent {
+	static propTypes = {
+		className: PropTypes.string,
+		history: PropTypes.shape({
+			push: PropTypes.func
+		}),
+		client: PropTypes.shape({
+			mutate: PropTypes.func
+		}),
+		data: PropTypes.object
+	};
 	state={
 		layout: null
 	}
@@ -20,33 +34,77 @@ class Report extends React.PureComponent {
 			content: [{
 				type: 'column',
 				content: [{
-					type: 'react-component',
-					component: 'test-component',
-					props: { label: 'A' },
-					id: 'ec1'
-				}, {
-					type: 'column',
+					type: 'row',
 					content: [{
 						type: 'react-component',
-						component: 'test-component1',
-						id: 'ec2',
-						props: { label: 'B' }
+						component: 'tourist_gender_proportion',
+						title: '游客性别比例图',
+						props: {
+							id: 'tourist_gender_proportion',
+							data: this.props.data
+						}
+					}, {
+
+						type: 'column',
+						content: [
+							{
+								type: 'react-component',
+								component: 'tourist_vip_proportion',
+								title: '游客vip比例图',
+								props: {
+									id: 'tourist_vip_proportion',
+									data: this.props.data
+								}
+							}, {
+								type: 'react-component',
+								component: 'tourist_vip_proportion',
+								props: {
+									id: '4',
+									data: this.props.data
+								}
+							}
+						]
 					}, {
 						type: 'react-component',
-						component: 'test-component',
-						props: { label: 'C' },
-						id: 'ec3'
+						component: 'tourist_vip_proportion',
+						props: {
+							id: '2',
+							data: this.props.data
+						},
+						id: 'ec1'
+					}]
+				}, {
+					type: 'row',
+					content: [{
+						type: 'react-component',
+						component: 'product_type',
+						title: '商品类别比例图',
+						props: {
+							id: 'product_type',
+							data: this.props.data
+						}
+					}]
+				}, {
+					type: 'row',
+					content: [{
+						type: 'react-component',
+						component: 'tourist_vip_proportion',
+						props: {
+							id: '8',
+							data: this.props.data
+						}
+					}, {
+						type: 'react-component',
+						component: 'tourist_vip_proportion',
+						props: {
+							id: '5',
+							data: this.props.data
+						}
 					}]
 				}]
 			}]
 		}, '#report');
-		// myLayout.toconfig.stateChanged(() => {
-		// 	console.log('123');
-		// });
 		setTimeout(() => {
-			// myLayout.registerComponent('test-component', Layout);
-			// myLayout.registerComponent('test-component1', LayoutCopy);
-			// myLayout.registerComponent('test-component3', LayoutCopy);
 			for (const item of config) {
 				myLayout.registerComponent(item.name, item.component);
 			}
@@ -59,14 +117,25 @@ class Report extends React.PureComponent {
 	}
 	render () {
 		const {layout} = this.state;
+		console.log(this.props);
 		return (
 			<div className={ s.container }>
 				<div className={ s.report } id="report">
-					<SideBar layout={ layout }/>
+					<SideBar layout={ layout } data={ this.props.data }/>
 				</div>
 			</div>
 		);
 	}
 }
+const QUERY = [];
+for (const item of config) {
+	QUERY.push(item.query);
+}
 
-export default Report;
+export default compose(
+	graphql(gql`
+	  query{
+		${ QUERY.join('') }
+	  }
+  `)
+)(LoadingHoc(Report));

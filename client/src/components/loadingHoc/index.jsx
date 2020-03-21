@@ -10,9 +10,6 @@ const HocComponent = (ParameterComponent) =>
 		// }
 		static propTypes = {
 			className: PropTypes.string,
-			client: PropTypes.shape({
-				mutate: PropTypes.func
-			}),
 			history: PropTypes.shape({
 				push: PropTypes.func
 			}),

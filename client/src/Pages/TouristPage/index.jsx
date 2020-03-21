@@ -186,7 +186,6 @@ class Tourist extends React.PureComponent {
 	}
 	render () {
 		const { selectedOption, searchValue, selectedOptionofBlack } = this.state;
-		console.log(this.props);
 		return (
 			<div className={ cn(s.tourist) }>
 				<div className={ s.firstRow }>

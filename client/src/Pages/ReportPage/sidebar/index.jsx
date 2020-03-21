@@ -3,6 +3,7 @@ import React from 'react';
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import s from './style.css';
+import { v4 as uidv4 } from 'uuid';
 class sidebar extends React.PureComponent {
 	static propTypes = {
 		className: PropTypes.string,
@@ -12,7 +13,8 @@ class sidebar extends React.PureComponent {
 		history: PropTypes.shape({
 			push: PropTypes.func
 		}),
-		layout: PropTypes.object
+		layout: PropTypes.object,
+		data: PropTypes.object
 	};
 	state = {
 		out: false,
@@ -22,19 +24,26 @@ class sidebar extends React.PureComponent {
 		inputValue: '',
 		routeMakers: null
 	};
+	dataConfig = [{
+		title: '游客性别比例图',
+		component: 'tourist_gender_proportion'
+	}];
 	sidebarHandler= () => {
 		this.setState({
 			out: !this.state.out
 		});
 	};
-	addItemHandler=() => {
+	addItemHandler=(item) => {
+		console.log(this.props.data);
 		const { layout } = this.props;
 		const newItemConfig = {
-			title: '123',
 			type: 'react-component',
-			component: 'test-component3',
-			props: { label: 'kk' },
-			componentState: { text: '11' }
+			component: item.component,
+			title: item.title,
+			props: {
+				id: uidv4(),
+				data: this.props.data
+			}
 		};
 		layout.root.contentItems[ 0 ].addChild(newItemConfig);
 	}
@@ -49,10 +58,21 @@ class sidebar extends React.PureComponent {
 				/>
 				<div className={ cn(s.list, out && s.listOut) } >
 					<div className={ s.content }>
-						<span onClick={ this.addItemHandler }>11</span>
+						<span className={ s.title }>点击添加对应图标</span>
+						<div className={ s.searchList }>
+							{
+								this.dataConfig.map((item) => {
+									return (
+										<p className={ s.showInput } onClick={ () => { this.addItemHandler(item); } } key={ uidv4() }>{item.title}</p>
+									);
+								})
+							}
+						</div>
+
 					</div>
 				</div>
-			</div>);
+			</div>
+		);
 	}
 }
 export default sidebar;
