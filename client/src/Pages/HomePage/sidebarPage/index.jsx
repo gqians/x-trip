@@ -31,8 +31,19 @@ class Sidebar extends React.PureComponent {
 		messageSelect: false
 	}
 	componentDidMount () {
-		console.log(this.props.history.location);
 		this.props.history.listen((e) => {
+			// const [cookies] = useCookies(['token']);
+			console.log(sessionStorage.getItem('token'));
+			console.log(e);
+			if (!sessionStorage.getItem('token') && e.pathname !== '/') {
+				const path = {
+					pathname: '/',
+					state: {
+						message: '登录信息过期，请重新登录!'
+					}
+				};
+				this.props.history.push(path);
+			}
 			if (e.pathname === '/home/index') {
 				this.setState({
 					indexColor: '#ffffff',
@@ -153,7 +164,15 @@ class Sidebar extends React.PureComponent {
 					messageSelect: true
 				});
 			} else {
-				// this.props.history.push('/home/index');
+				if (e.pathname !== '/') {
+					const path = {
+						pathname: '/',
+						state: {
+							message: '404 未找到对应页面!'
+						}
+					};
+					this.props.history.push(path);
+				}
 			}
 		});
 

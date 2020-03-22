@@ -66,7 +66,8 @@ const graphqlPlugin = {
 						schema: graphqlSchema
 					},
 					route: {
-						cors: true
+						cors: true,
+						auth: 'jwt'
 					}
 				}
 			});

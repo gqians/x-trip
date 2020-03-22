@@ -13,11 +13,14 @@
     	font-weight: 900;
     	margin: 3rem 2.7rem 2.7rem;
 		}
+		.text-waring{
+			color:red !important;
+		}
 		.text-bto{
 			font-size: var(--text-base-size);
 			color: #999;
       line-height: 1.5;
-      margin: 2.7rem;
+      margin: 1rem 2.7rem;
 		}
 	}
 	.right{

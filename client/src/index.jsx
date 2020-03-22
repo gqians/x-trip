@@ -7,7 +7,6 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { createHttpLink } from 'apollo-link-http';
 import fetch from 'node-fetch';
 import App from './App';
-
 import config from './config';
 // 连接apollo服务
 

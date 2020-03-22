@@ -18,7 +18,8 @@ class Login extends React.PureComponent {
 		}),
 		history: PropTypes.shape({
 			push: PropTypes.func
-		})
+		}),
+		location: PropTypes.object
 	};
 
 	static defaultProps = {
@@ -106,7 +107,7 @@ class Login extends React.PureComponent {
 			id: user,
 			password
 		}).then(res => {
-			console.log(res);
+			sessionStorage.setItem('token', res.data.token);
 			if (res.data.state) {
 				this.props.history.push('/home/index');
 			}
@@ -116,10 +117,14 @@ class Login extends React.PureComponent {
 	}
 	render () {
 		const { className } = this.props;
+		console.log(this.props);
 		return (
 			<div className={ cn(className, s.login) }>
 				<div className={ s.left } >
 					<div className={ s.textTop }>登录</div>
+					{
+						this.props.location.state ? (<div className={ cn(s.textBto, s.textWaring) }>{this.props.location.state.message}</div>) : ''
+					}
 					<div className={ s.textBto }>x-trip后台管理平台，请输入您的账号和密码以登录!</div>
 				</div>
 				<div className={ s.right }>
