@@ -151,7 +151,6 @@ class Index extends React.PureComponent {
 		this.props.history.push('/home/tourist');
 	}
 	render () {
-		console.log('index-渲染');
 		const {className} = this.props;
 		const {active, route, touristSpot, ghandruk, order, touristSpots, hotels, routes} = this.state;
 		const items = [
@@ -191,8 +190,11 @@ class Index extends React.PureComponent {
 				</div>
 				<div className={ s.secondRow }>
 					<div className={ s.map } id="map" />
-					{(active === 0 || active === 2) &&
-						<SideBar data={ active === 0 ? touristSpots : hotels } map={ this.state.map }/>
+					{(active === 0) &&
+						<SideBar data={ touristSpots } map={ this.state.map }/>
+					}
+					{(active === 2) &&
+						<SideBar data={ hotels } map={ this.state.map }/>
 					}
 					{
 						(active === 1) &&
