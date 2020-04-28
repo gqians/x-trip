@@ -16,7 +16,8 @@ class sidebar extends React.PureComponent {
 		}),
 		data: PropTypes.array,
 		map: PropTypes.object,
-		active: PropTypes.object
+		active: PropTypes.object,
+		title: PropTypes.string
 	};
 	state = {
 		out: true,
@@ -164,7 +165,7 @@ class sidebar extends React.PureComponent {
 				<div className={ cn(out && s.iconOut, s.sideIcon) } onClick={ this.sidebarHandler.bind(this) } />
 				<div className={ cn(s.list, out && s.listOut) } >
 					<div className={ s.content }>
-						<span className={ s.title }>旅游点</span>
+						<span className={ s.title }>{this.props.title}</span>
 						<div className={ s.asideSearch }>
 							<div className={ s.searchBar }>
 								<div className={ s.comSearch }>

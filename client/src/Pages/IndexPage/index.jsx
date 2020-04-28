@@ -191,14 +191,14 @@ class Index extends React.PureComponent {
 				<div className={ s.secondRow }>
 					<div className={ s.map } id="map" />
 					{(active === 0) &&
-						<SideBar data={ touristSpots } map={ this.state.map }/>
+						<SideBar data={ touristSpots } map={ this.state.map } title="旅游点"/>
 					}
 					{(active === 2) &&
-						<SideBar data={ hotels } map={ this.state.map }/>
+						<SideBar data={ hotels } map={ this.state.map } title="住宿点"/>
 					}
 					{
 						(active === 1) &&
-						<SideBar data={ routes } map={ this.state.map } active={ {active} }/>
+						<SideBar data={ routes } map={ this.state.map } active={ {active} } title="路线"/>
 					}
 				</div>
 			</div>
