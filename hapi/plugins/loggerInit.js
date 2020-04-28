@@ -16,21 +16,21 @@ const loggerPlugin = {
 				// stream: process.stdout
 					type: 'rotating-file',
 					level: 'info',
-					path: options.logger.path,
+					path: options.logger.pathInfo,
 					period: options.logger.period, // daily rotation
 					count: options.logger.count // keep 7 back copies
 				},
 				{
 					type: 'rotating-file',
 					level: 'debug',
-					path: options.logger.path,
+					path: options.logger.pathWarn,
 					period: options.logger.period, // daily rotation
 					count: options.logger.count // keep 7 back copies
 				},
 				{
 					type: 'rotating-file',
 					level: 'error',
-					path: options.logger.path,
+					path: options.logger.pathError,
 					period: options.logger.period, // daily rotation
 					count: options.logger.count // keep 7 back copies
 				}

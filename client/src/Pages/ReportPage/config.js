@@ -4,6 +4,7 @@ import ProductType from './layout_product_type';
 export default [
 	{
 		name: 'tourist_gender_proportion',
+		title: '游客性别比例图',
 		component: Layout,
 		query: `
 			manCount:TouristPagination(filter:{
@@ -15,10 +16,10 @@ export default [
 				sex:"男"
 			}){
 				count
-			}`,
-		data: ['manCount', 'womanCount']
+			}`
 	}, {
 		name: 'tourist_vip_proportion',
+		title: '游客vip比例图',
 		component: TouristVip,
 		query: `
 		normalVipCount:TouristPagination(filter:{
@@ -40,6 +41,7 @@ export default [
 	}, {
 		name: 'product_type',
 		component: ProductType,
+		title: '产品类型比例图',
 		query: `
 		touristCount:TouristSpotsPagination(filter:{
 

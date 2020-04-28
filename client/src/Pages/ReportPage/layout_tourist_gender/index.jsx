@@ -107,8 +107,6 @@ class Layout extends React.PureComponent {
 			this.forceUpdate();
 			return;
 		}
-		// this.props.glContainer.setTitle('123');
-		console.log(this.props.data.manCount.count);
 		// 基于准备好的dom，初始化echarts实例
 		const myChart = echarts.init(document.getElementById(this.props.id));
 		// 指定图表的配置项和数据
@@ -173,7 +171,6 @@ class Layout extends React.PureComponent {
 		});
 	}
 	render () {
-		console.log('layout: ' + this.props.id);
 		return (
 			<div className={ s.report }>
 				<div className={ s.chart } id={ this.props.id } />

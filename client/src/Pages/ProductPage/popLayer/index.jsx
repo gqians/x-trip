@@ -18,6 +18,8 @@ import TimePicker from 'rc-time-picker';
 import {withRouter} from 'react-router-dom';
 import 'rc-time-picker/assets/index.css';
 import { Line } from 'rc-progress';
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
 class ProductRoute extends React.PureComponent {
 	static propTypes = {
 		className: PropTypes.string,
@@ -56,6 +58,38 @@ class ProductRoute extends React.PureComponent {
 		id: '',
 		imageName: '',
 		percent: 0
+	}
+	checkConfig={
+		hotelType: {
+			maxLength: 15,
+			minLength: 1,
+			title: '住宿点类型'
+		},
+		phoneNumber: {
+			maxLength: 15,
+			minLength: 1,
+			title: '电话号码'
+		},
+		name: {
+			maxLength: 15,
+			minLength: 1,
+			title: '商品名称'
+		},
+		address: {
+			maxLength: 15,
+			minLength: 1,
+			title: '商品地址'
+		},
+		price: {
+			maxLength: 6,
+			minLength: 1,
+			title: '商品价格'
+		},
+		description: {
+			maxLength: 150,
+			minLength: 1,
+			title: '商品描述'
+		}
 	}
 	uploaderProps = {
 		action: '/upload',
@@ -101,15 +135,26 @@ class ProductRoute extends React.PureComponent {
 		});
 	}
 	searchChangeHandler=(type, e) => {
-		if (e === null) {
-			e = '';
-		}
-		if (type === 'startTime' || type === 'endTime') {
-			console.log(e);
+		if (type === 'lat' || type === 'lng') {
 			this.setState({
 				[type]: e
 			});
 			return;
+		}
+		if (type === 'startTime' || type === 'endTime') {
+			this.setState({
+				[type]: e
+			});
+			return;
+		}
+		if (e.target.value.length > this.checkConfig[type]?.maxLength) {
+			toastr.options.timeOut = 1000;
+			toastr.error(`当前输入的长度的超过了${ this.checkConfig[type]?.maxLength }`, `${ this.checkConfig[type]?.title }输入出错`);
+			return;
+		}
+		if (e.target.value.length >= this.checkConfig[type]?.minLength || this.checkConfig[type]?.minLength) {
+			toastr.options.timeOut = 1000;
+			toastr.success(`输入的长度在${ this.checkConfig[type]?.minLength }-${ this.checkConfig[type]?.maxLength }个之间`, `${ this.checkConfig[type]?.title }输入符合需求`);
 		}
 		this.setState({
 			[type]: typeof e === 'object' ? e.target.value : e
@@ -117,7 +162,6 @@ class ProductRoute extends React.PureComponent {
 	}
 	componentDidMount () {
 		const {myrecode} = this.props;
-		console.log(myrecode);
 		// console.log(moment(myrecode.businessHours.startTime));
 		if (myrecode) {
 			this.setState({
@@ -136,6 +180,20 @@ class ProductRoute extends React.PureComponent {
 		}
 	}
 	buttonClick=() => {
+		// 检查各个输入时候符合要求
+		let haveBug = false;
+		for (const i in this.checkConfig) {
+			console.log(this.state[i].length);
+			if (this.state[i].length > this.checkConfig[i].maxLength || this.state[i].length < this.checkConfig[i].minLength) {
+				toastr.options.timeOut = 4000;
+				toastr.error(`${ this.checkConfig[i].title }输入信息存在错误，请检查后再提交`, `输入出错`);
+				haveBug = true;
+			}
+		}
+		if (haveBug) {
+			return;
+		}
+		//
 		const { GraphqlMethod, fileds } = this.props;
 		const argument = [];
 		console.log(fileds);
@@ -147,7 +205,6 @@ class ProductRoute extends React.PureComponent {
 			// tmp = String(tmp);
 			argument.push(tmp);
 		}
-		console.log(argument);
 		GraphqlMethod(...argument).then(() => {
 			this.props.history.go(0);
 		});
@@ -159,41 +216,6 @@ class ProductRoute extends React.PureComponent {
 				<div className={ s.firstRow }>
 					<Button onClick={ this.buttonClick } text="提交" />
 				</div>
-				{/* <div className={ s.secondRow }>
-					<div className={ s.title }>
-						请选择商品类型:
-					</div>
-					<div className={ s.radioCom } onClick={ (e) => this.typeClickHandler('tourist', e) }>
-						<RadioButton
-							checked={ setting.type === 'tourist' }
-							className={ s.radio }
-						>
-							<div className={ s.radioContent }>
-								<span className={ s.text }>旅游点</span>
-							</div>
-						</RadioButton>
-					</div>
-					<div className={ s.radioCom } onClick={ (e) => this.typeClickHandler('hotel', e) }>
-						<RadioButton
-							checked={ setting.type === 'hotel' }
-							className={ s.radio }
-						>
-							<div className={ s.radioContent }>
-								<span className={ s.text }>住宿点</span>
-							</div>
-						</RadioButton>
-					</div>
-					<div className={ s.radioCom } onClick={ (e) => this.typeClickHandler('route', e) }>
-						<RadioButton
-							checked={ setting.type === 'route' }
-							className={ s.radio }
-						>
-							<div className={ s.radioContent }>
-								<span className={ s.text }>路线</span>
-							</div>
-						</RadioButton>
-					</div>
-				</div> */}
 				<div className={ s.secondRow }>
 					<div className={ s.title }>
 						请输入商品名称:

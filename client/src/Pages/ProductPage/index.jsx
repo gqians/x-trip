@@ -2,8 +2,8 @@ import React from 'react';
 import BreadCrumb from './breadCrumb';
 import ProductTourist from './touristSpots';
 import ProductHotel from './hotel';
-import ProductRoute from './route';
-import ProductAdd from './popLayer';
+// import ProductRoute from './route';
+// import ProductAdd from './popLayer';
 import PropTypes from 'prop-types';
 import s from './style.css';
 class Product extends React.PureComponent {
@@ -23,17 +23,17 @@ class Product extends React.PureComponent {
 			path: '/home/product/hotel',
 			title: '住宿点',
 			component: ProductHotel
-		},
-		{
-			path: '/home/product/route',
-			title: '路线',
-			component: ProductRoute
-		},
-		{
-			path: '/home/product/add',
-			title: '添加商品',
-			component: ProductAdd
 		}
+		// {
+		// 	path: '/home/product/route',
+		// 	title: '路线',
+		// 	component: ProductRoute
+		// },
+		// {
+		// 	path: '/home/product/add',
+		// 	title: '添加商品',
+		// 	component: ProductAdd
+		// }
 	];
 
 	render () {

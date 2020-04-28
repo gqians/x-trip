@@ -183,6 +183,7 @@ class ProductTourist extends React.PureComponent {
 					animation="zoom"
 					maskAnimation="fade"
 					style={ { width: '70%' } }
+					bodyStyle={ {backgroundColor: 'hsl(228,45%,97%)'} }
 				>
 					<Pop GraphqlMethod={ this.props.TouristSpotsUpdateById } myrecode={ myrecode }/>
 				</Dialog>
@@ -193,6 +194,7 @@ class ProductTourist extends React.PureComponent {
 					animation="zoom"
 					maskAnimation="fade"
 					style={ { width: '80%' } }
+					bodyStyle={ {backgroundColor: 'hsl(228,45%,97%)'} }
 				>
 					<Pop GraphqlMethod={ this.props.TouristSpotsCreateOne } fileds={
 						['name', 'address', 'lat', 'lng', 'description', 'price', 'startTime', 'endTime', 'picture'] }

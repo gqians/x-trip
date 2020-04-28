@@ -7,9 +7,8 @@ import anime from 'animejs';
 import s from './style.css';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
-// import fetch from 'node-fetch';
-// import Input from '../../components/input';
-// const login = gql`query { todos { text } }`;
+import toastr from 'toastr';
+import 'toastr/build/toastr.min.css';
 class Login extends React.PureComponent {
 	static propTypes = {
 		className: PropTypes.string,
@@ -51,7 +50,31 @@ class Login extends React.PureComponent {
 			current
 		});
 	}
+	loginCheck={
+		user: {
+			maxLength: 10,
+			minLength: 2,
+			title: '用户名'
+		},
+		password: {
+			maxLength: 10,
+			minLength: 6,
+			title: '密码'
+		}
+	}
 	userChangeHandler=(e) => {
+		if (e.target.value.length < this.loginCheck.user.minLength) {
+			toastr.options.timeOut = 1000;
+			toastr.error(`用户名输入长度应该在${ this.loginCheck.user.minLength }-${ this.loginCheck.user.maxLength }之间，请检查后再提交`, `用户名长度出错`);
+		}
+		if (e.target.value.length > this.loginCheck.user.maxLength) {
+			toastr.options.timeOut = 1000;
+			toastr.error(`用户名输入长度应该在${ this.loginCheck.user.minLength }-${ this.loginCheck.user.maxLength }之间，请检查后再提交`, `用户名长度出错`);
+		}
+		if (e.target.value.length <= this.loginCheck.user.maxLength && e.target.value.length >= this.loginCheck.user.minLength) {
+			toastr.options.timeOut = 1000;
+			toastr.success(`用户名输入长度在${ this.loginCheck.user.minLength }-${ this.loginCheck.user.maxLength }之间`, `用户名输入长度正确`);
+		}
 		this.setState({
 			[e.target.name]: e.target.value
 		});
@@ -77,6 +100,18 @@ class Login extends React.PureComponent {
 		});
 	}
 	passChangeHandler=(e) => {
+		if (e.target.value.length < this.loginCheck.password.minLength) {
+			toastr.options.timeOut = 1000;
+			toastr.error(`密码输入长度应该在${ this.loginCheck.password.minLength }-${ this.loginCheck.password.maxLength }之间，请检查后再提交`, `密码长度出错`);
+		}
+		if (e.target.value.length > this.loginCheck.password.maxLength) {
+			toastr.options.timeOut = 1000;
+			toastr.error(`密码输入长度应该在${ this.loginCheck.password.minLength }-${ this.loginCheck.password.maxLength }之间，请检查后再提交`, `密码长度出错`);
+		}
+		if (e.target.value.length <= this.loginCheck.password.maxLength && e.target.value.length >= this.loginCheck.password.minLength) {
+			toastr.options.timeOut = 1000;
+			toastr.success(`密码输入长度在${ this.loginCheck.password.minLength }-${ this.loginCheck.password.maxLength }之间`, `密码输入长度正确`);
+		}
 		this.setState({
 			[e.target.name]: e.target.value
 		});
@@ -102,6 +137,17 @@ class Login extends React.PureComponent {
 		});
 	}
 	clickHandler=() => {
+		let haveBug = false;
+		for (const i in this.loginCheck) {
+			if (this.state[i].length > this.loginCheck[i].maxLength || this.state[i].length < this.loginCheck[i].minLength) {
+				toastr.options.timeOut = 4000;
+				toastr.error(`${ this.loginCheck[i].title }输入信息存在错误，请检查后再提交`, `输入出错`);
+				haveBug = true;
+			}
+		}
+		if (haveBug) {
+			return;
+		}
 		const {user, password} = this.state;
 		axios.post('/login', {
 			id: user,
@@ -110,21 +156,25 @@ class Login extends React.PureComponent {
 			sessionStorage.setItem('token', res.data.token);
 			if (res.data.state) {
 				this.props.history.push('/home/index');
+			} else {
+				toastr.options.timeOut = 4000;
+				toastr.error(`${ res.data.message }  请核对后重新进行输入！`, `登录出错`);
 			}
 		}).catch(e => {
-			console.log(e);
+			throw Error(e);
 		});
+	}
+	andleEnterKey=(e) => {
+		if (e.nativeEvent.keyCode === 13) {
+			this.clickHandler();
+		};
 	}
 	render () {
 		const { className } = this.props;
-		console.log(this.props);
 		return (
 			<div className={ cn(className, s.login) }>
 				<div className={ s.left } >
 					<div className={ s.textTop }>登录</div>
-					{
-						this.props.location.state ? (<div className={ cn(s.textBto, s.textWaring) }>{this.props.location.state.message}</div>) : ''
-					}
 					<div className={ s.textBto }>x-trip后台管理平台，请输入您的账号和密码以登录!</div>
 				</div>
 				<div className={ s.right }>
@@ -164,6 +214,7 @@ class Login extends React.PureComponent {
 								minLength="5"
 								required="required"
 								className={ s.input }
+								onKeyPress={ this.andleEnterKey }
 								onFocus={ this.passFocusHandler }
 								onChange={ this.passChangeHandler }
 							/>

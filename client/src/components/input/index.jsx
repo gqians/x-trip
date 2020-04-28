@@ -1,7 +1,6 @@
 import cn from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
-
 import s from './style.css';
 
 export default class Input extends React.PureComponent {

@@ -184,6 +184,7 @@ class ProductHotel extends React.PureComponent {
 					animation="zoom"
 					maskAnimation="fade"
 					style={ { width: '70%' } }
+					bodyStyle={ {backgroundColor: 'hsl(228,45%,97%)'} }
 				>
 					<Pop GraphqlMethod={ this.props.HotelUpdateById } myrecode={ myrecode } fileds={ ['id', 'onSale', 'name', 'address', 'lat', 'lng', 'description', 'price', 'startTime', 'endTime', 'picture', 'phoneNumber', 'hotelType'] }/>
 				</Dialog>
@@ -194,6 +195,7 @@ class ProductHotel extends React.PureComponent {
 					animation="zoom"
 					maskAnimation="fade"
 					style={ { width: '80%' } }
+					bodyStyle={ {backgroundColor: 'hsl(228,45%,97%)'} }
 				>
 					<Pop GraphqlMethod={ this.props.HotelCreateOne } fileds={ ['name', 'address', 'lat', 'lng', 'description', 'price', 'startTime', 'endTime', 'picture', 'phoneNumber', 'hotelType'] }/>
 				</Dialog>

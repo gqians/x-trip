@@ -15,6 +15,8 @@ import PropTypes from 'prop-types';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import { compose } from 'recompose';
+import { v4 as uidv4 } from 'uuid';
+
 class Report extends React.PureComponent {
 	static propTypes = {
 		className: PropTypes.string,
@@ -40,11 +42,10 @@ class Report extends React.PureComponent {
 						component: 'tourist_gender_proportion',
 						title: '游客性别比例图',
 						props: {
-							id: 'tourist_gender_proportion',
+							id: uidv4(),
 							data: this.props.data
 						}
 					}, {
-
 						type: 'column',
 						content: [
 							{
@@ -52,14 +53,14 @@ class Report extends React.PureComponent {
 								component: 'tourist_vip_proportion',
 								title: '游客vip比例图',
 								props: {
-									id: 'tourist_vip_proportion',
+									id: uidv4(),
 									data: this.props.data
 								}
 							}, {
 								type: 'react-component',
 								component: 'tourist_vip_proportion',
 								props: {
-									id: '4',
+									id: uidv4(),
 									data: this.props.data
 								}
 							}
@@ -68,10 +69,9 @@ class Report extends React.PureComponent {
 						type: 'react-component',
 						component: 'tourist_vip_proportion',
 						props: {
-							id: '2',
+							id: uidv4(),
 							data: this.props.data
-						},
-						id: 'ec1'
+						}
 					}]
 				}, {
 					type: 'row',
@@ -80,7 +80,7 @@ class Report extends React.PureComponent {
 						component: 'product_type',
 						title: '商品类别比例图',
 						props: {
-							id: 'product_type',
+							id: uidv4(),
 							data: this.props.data
 						}
 					}]
@@ -90,14 +90,14 @@ class Report extends React.PureComponent {
 						type: 'react-component',
 						component: 'tourist_vip_proportion',
 						props: {
-							id: '8',
+							id: uidv4(),
 							data: this.props.data
 						}
 					}, {
 						type: 'react-component',
 						component: 'tourist_vip_proportion',
 						props: {
-							id: '5',
+							id: uidv4(),
 							data: this.props.data
 						}
 					}]
@@ -109,7 +109,6 @@ class Report extends React.PureComponent {
 				myLayout.registerComponent(item.name, item.component);
 			}
 			myLayout.init();
-			console.log(myLayout.toConfig());
 			this.setState({
 				layout: myLayout
 			});
@@ -117,7 +116,6 @@ class Report extends React.PureComponent {
 	}
 	render () {
 		const {layout} = this.state;
-		console.log(this.props);
 		return (
 			<div className={ s.container }>
 				<div className={ s.report } id="report">

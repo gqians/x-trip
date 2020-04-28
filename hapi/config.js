@@ -17,7 +17,9 @@ export default {
 	mongoUri: 'mongodb://127.0.0.1:27017/trip',
 	logger: {
 		name: 'trip',
-		path: path.join(process.cwd(), './hapi/logger'),
+		pathInfo: path.join(process.cwd(), './hapi/loggers/info.log'),
+		pathWarn: path.join(process.cwd(), './hapi/loggers/warning.log'),
+		pathError: path.join(process.cwd(), './hapi/loggers/error.log'),
 		period: '6d',
 		count: 7
 	},

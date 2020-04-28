@@ -71,18 +71,6 @@ const graphqlPlugin = {
 					}
 				}
 			});
-			//   await server.register({
-			// 	plugin: graphiqlHapi,
-			// 	options: {
-			// 	  path: options.graphql.graphiqlpath,
-			// 	  route: {
-			// 		cors: true,
-			// 	  },
-			// 	  graphiqlOptions: {
-			// 		endpointURL: options.graphql.graphqlpath,
-			// 	  },
-			// 	},
-			//   });
 		});
 	}
 };

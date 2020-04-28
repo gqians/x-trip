@@ -4,6 +4,7 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import s from './style.css';
 import { v4 as uidv4 } from 'uuid';
+import config from '../config';
 class sidebar extends React.PureComponent {
 	static propTypes = {
 		className: PropTypes.string,
@@ -27,6 +28,9 @@ class sidebar extends React.PureComponent {
 	dataConfig = [{
 		title: '游客性别比例图',
 		component: 'tourist_gender_proportion'
+	}, {
+		title: '游客vip比例图',
+		component: 'tourist_vip_proportion'
 	}];
 	sidebarHandler= () => {
 		this.setState({
@@ -34,11 +38,10 @@ class sidebar extends React.PureComponent {
 		});
 	};
 	addItemHandler=(item) => {
-		console.log(this.props.data);
 		const { layout } = this.props;
 		const newItemConfig = {
 			type: 'react-component',
-			component: item.component,
+			component: item.name,
 			title: item.title,
 			props: {
 				id: uidv4(),
@@ -58,17 +61,16 @@ class sidebar extends React.PureComponent {
 				/>
 				<div className={ cn(s.list, out && s.listOut) } >
 					<div className={ s.content }>
-						<span className={ s.title }>点击添加对应图标</span>
+						<span className={ s.title }>点击添加对应图表</span>
 						<div className={ s.searchList }>
 							{
-								this.dataConfig.map((item) => {
+								config.map((item) => {
 									return (
 										<p className={ s.showInput } onClick={ () => { this.addItemHandler(item); } } key={ uidv4() }>{item.title}</p>
 									);
 								})
 							}
 						</div>
-
 					</div>
 				</div>
 			</div>
