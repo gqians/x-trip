@@ -183,7 +183,9 @@ class ProductRoute extends React.PureComponent {
 		// 检查各个输入时候符合要求
 		let haveBug = false;
 		for (const i in this.checkConfig) {
-			console.log(this.state[i].length);
+			if (this.props.fileds.indexOf(i) < 0) {
+				continue;
+			}
 			if (this.state[i].length > this.checkConfig[i].maxLength || this.state[i].length < this.checkConfig[i].minLength) {
 				toastr.options.timeOut = 4000;
 				toastr.error(`${ this.checkConfig[i].title }输入信息存在错误，请检查后再提交`, `输入出错`);
@@ -196,7 +198,6 @@ class ProductRoute extends React.PureComponent {
 		//
 		const { GraphqlMethod, fileds } = this.props;
 		const argument = [];
-		console.log(fileds);
 		for (const filed of fileds) {
 			let tmp = this.state[filed];
 			if (filed === 'startTime' || filed === 'endTime' || filed === 'lat' || filed === 'lng') {
