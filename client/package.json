@@ -79,7 +79,7 @@
 		"leaflet": "^1.6.0",
 		"leaflet.chinatmsproviders": "^2.0.3",
 		"leaflet.markercluster": "^1.4.1",
-		"lodash": "^4.17.14",
+		"lodash": "^4.17.19",
 		"mini-css-extract-plugin": "^0.7.0",
 		"moment": "^2.24.0",
 		"node-fetch": "^2.6.0",
