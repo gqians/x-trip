@@ -1,9 +1,10 @@
 # Logs
 logs
 logger
+loggers
 *.log
 npm-debug.log*
-
+static
 # Runtime data
 pids
 *.pid

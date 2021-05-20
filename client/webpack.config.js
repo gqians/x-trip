@@ -9,13 +9,13 @@ const fileExtensions =
 	'\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|ico)$';
 
 const postcssOptions = {
-	plugins: [nested, autoprefixer()]
+	plugins: [nested, autoprefixer()],
 };
 
 const clientPaths = [
 	path.resolve(process.cwd(), 'src'),
 	...module.paths,
-	'node_modules'
+	'node_modules',
 ];
 
 module.exports = {
@@ -27,25 +27,25 @@ module.exports = {
 
 	output: {
 		filename: 'assets/[name].js',
-		chunkFilename: 'assets/[name].js'
+		chunkFilename: 'assets/[name].js',
 	},
 
 	resolve: {
 		extensions: ['.mjs', '.js', '.jsx'],
 		modules: clientPaths,
 		alias: {
-			'package.json': path.join(process.cwd(), 'package.json')
-		}
+			'package.json': path.join(process.cwd(), 'package.json'),
+		},
 	},
 
 	resolveLoader: {
-		modules: clientPaths
+		modules: clientPaths,
 	},
 
 	node: {
 		process: 'mock',
 		__dirname: true,
-		__filename: true
+		__filename: true,
 	},
 	devServer: {
 		contentBase: path.join(process.cwd(), 'dist'),
@@ -56,8 +56,8 @@ module.exports = {
 		proxy: {
 			'/login': 'http://localhost:8090',
 			'/graphql': 'http://localhost:8090',
-			'/upload': 'http://localhost:8090'
-		}
+			'/upload': 'http://localhost:8090',
+		},
 	},
 	module: {
 		rules: [
@@ -65,23 +65,23 @@ module.exports = {
 				enforce: 'pre',
 				test: /\.jsx?$/,
 				include: path.join(process.cwd(), 'src'),
-				loader: 'eslint-loader'
+				loader: 'eslint-loader',
 			},
 			{
 				test: /\.(graphql|gql)$/,
-				loader: 'graphql-tag/loader'
+				loader: 'graphql-tag/loader',
 			},
 			{
 				type: 'javascript/auto',
 				test: /\.mjs$/,
-				use: []
+				use: [],
 			},
 			{
 				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
 				include: [/SvgIcon/],
 				use: [
 					{
-						loader: 'babel-loader'
+						loader: 'babel-loader',
 					},
 					{
 						loader: '@svgr/webpack',
@@ -90,19 +90,19 @@ module.exports = {
 							icon: true,
 							svgoConfig: {
 								removeUselessDefs: false,
-								plugins: [{ prefixIds: false }]
-							}
-						}
-					}
-				]
+								plugins: [{ prefixIds: false }],
+							},
+						},
+					},
+				],
 			},
 			{
 				test: new RegExp(fileExtensions),
 				loader: 'url-loader',
 				exclude: [/SvgIcon/],
 				options: {
-					limit: 20000
-				}
+					limit: 20000,
+				},
 			},
 			{
 				test: /\.css$/,
@@ -114,21 +114,21 @@ module.exports = {
 						options: {
 							localsConvention: 'camelCase',
 							modules: {
-								localIdentName: '[local]--[hash:base64:5]'
+								localIdentName: '[local]--[hash:base64:5]',
 							},
-							sourceMap: true
-						}
+							sourceMap: true,
+						},
 					},
 					{
 						loader: 'postcss-loader',
-						options: postcssOptions
-					}
-				]
+						options: postcssOptions,
+					},
+				],
 			},
 			{
 				test: /\.css$/,
 				exclude: [path.join(process.cwd(), 'src')],
-				use: ['style-loader', 'css-loader']
+				use: ['style-loader', 'css-loader'],
 			},
 			{
 				test: /\.(js|jsx)$/,
@@ -136,34 +136,34 @@ module.exports = {
 				include: path.join(process.cwd(), 'src'),
 				options: {
 					...babelrc,
-					cacheDirectory: true
-				}
-			}
-		]
+					cacheDirectory: true,
+				},
+			},
+		],
 	},
 
 	plugins: [
 		new webpack.ProgressPlugin(),
 		new webpack.DefinePlugin({
-			'process.env.NODE_ENV': JSON.stringify('development')
+			'process.env.NODE_ENV': JSON.stringify('development'),
 		}),
 		new HtmlWebpackPlugin({
 			inject: true,
 			filename: 'index.html',
-			template: path.join(__dirname, 'template.html')
+			template: path.join(__dirname, 'template.html'),
 		}),
 		new webpack.ProvidePlugin({
-			'React': 'react',
-			'ReactDOM': 'react-dom',
-			'$': 'jquery',
-			'jQuery': 'jquery'
+			React: 'react',
+			ReactDOM: 'react-dom',
+			$: 'jquery',
+			jQuery: 'jquery',
 		}),
 
 		new webpack.NoEmitOnErrorsPlugin(),
 		new webpack.NamedModulesPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
 		// new webpack.HotModuleReplacementPlugin(),
 		// new CaseSensitivePathsPlugin(),
 		// new WatchMissingNodeModulesPlugin(paths.appNodeModules),
-	]
+	],
 };

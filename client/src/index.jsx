@@ -12,13 +12,15 @@ import config from './config';
 
 const client = new ApolloClient({
 	link: createHttpLink({ uri: config.graphqlUri, fetch }),
-	cache: new InMemoryCache()
+	cache: new InMemoryCache(),
 });
 // 应用主题的 CSS 变量
 Object.entries(config.theme).forEach(([key, value]) => {
 	document.documentElement.style.setProperty(key, value);
 });
 ReactDOM.render(
-	<ApolloProvider client={ client }>
+	<ApolloProvider client={client}>
 		<App />
-	</ApolloProvider>, document.getElementById('app'));
+	</ApolloProvider>,
+	document.getElementById('app')
+);
